@@ -9,4 +9,17 @@ public class CmdStorageBehaviour : MonoBehaviour {
 		set{commands = value;}
 		get{ return commands;}
 	}
+
+    public void clearList()
+    {
+        commands.Clear();
+    }
+    public void deleteCommand(int index)
+    {
+        commands.RemoveAt(index);
+    }
+    public void addCommand(Command com)
+    {
+        commands.Add(com);
+    }
 }
