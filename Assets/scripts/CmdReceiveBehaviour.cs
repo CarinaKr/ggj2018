@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cmdReceiveBehaviour : MonoBehaviour {
+public class CmdReceiveBehaviour : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void OnTriggerEnter(Collider other){
+		GetComponent<CmdTransmitBehaviour> ().SendCmd (
+			other.gameObject.GetComponent<CmdStorageBehaviour> ().Commands
+		);
 	}
 }

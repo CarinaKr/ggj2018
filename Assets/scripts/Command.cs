@@ -7,4 +7,5 @@ public enum Command {
 	MOVEDOWN,
 	MOVELEFT,
 	MOVERIGHT,
+	CROSS
 }

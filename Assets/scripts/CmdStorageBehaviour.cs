@@ -22,4 +22,10 @@ public class CmdStorageBehaviour : MonoBehaviour {
     {
         commands.Add(com);
     }
+
+	void Start(){
+		commands = new List<Command> ();
+		commands.Add (Command.MOVEUP);
+	}
+
 }

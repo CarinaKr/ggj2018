@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CmdTransmitBehaviour : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	public GameObject receiver;
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public void SendCmd(List<Command> commands){
+		foreach (Command command in commands){
+			Debug.Log (command);
+			receiver.GetComponent<ZombieMovementBehaviour>().Move(command);
+		}
 	}
 }
