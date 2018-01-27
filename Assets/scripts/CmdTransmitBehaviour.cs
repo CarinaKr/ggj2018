@@ -7,10 +7,17 @@ public class CmdTransmitBehaviour : MonoBehaviour {
 	public GameObject receiver;
 
 	public void SendCmd(List<Command> commands){
-		foreach (Command command in commands){
-			Debug.Log ("Will send Symbol: " + command.symbol);
-			receiver.GetComponent<ZombieMovementBehaviour>().Move(command.symbol);
-			receiver.GetComponent<Health>().ChangeHealth(command.dopaminBoost);
+		for (int i=0;i<commands.Count;i++)
+        {
+            Debug.Log ("Will send Symbol: " + commands[i].symbol);
+            CmdStorageBehaviour.instance.deleteSymbol(i);
+			receiver.GetComponent<ZombieBehaviour>().Move(commands[i].symbol);
+			receiver.GetComponent<Health>().ChangeHealth(commands[i].dopaminBoost);
+            //TODO: delete commandObj here
+            if(commands[i].symbol==Symbol.CROSS)
+            {
+                return;
+            }
 		}
 	}
 }

@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class CmdStorageBehaviour : MonoBehaviour {
 
+    public static CmdStorageBehaviour instance;
+
 	private List<Command> commands;
 	public List<Command> Commands {
 		set{commands = value;}
 		get{ return commands;}
 	}
+
+    void Awake()
+    {
+        if(instance==null)
+        {
+            instance = this;
+        }
+        else if(instance!=this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void clearList()
     {
@@ -25,7 +39,6 @@ public class CmdStorageBehaviour : MonoBehaviour {
 
 	void Start(){
 		commands = new List<Command> ();
-		commands.Add (new Command(Symbol.MOVEDOWN, 10));
 	}
 
 }

@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameControlBehaviour : MonoBehaviour {
 
 	public static GameControlBehaviour instance;
-
 	public GameObject transmitterPrefab;
-
 	public GameObject infoGod;
+    public Text pointText;
 
+    private int _points;
 
 	void Awake() {
         if (instance == null)
@@ -40,4 +41,16 @@ public class GameControlBehaviour : MonoBehaviour {
 		Time.timeScale = 1f;
 	}
 
+    public int points
+    {
+        get
+        {
+            return _points;
+        }
+        set
+        {
+            _points = value;
+            pointText.text = "Points: " + _points;
+        }
+    }
 }
