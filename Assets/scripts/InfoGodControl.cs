@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class InfoGodControl : MonoBehaviour {
 
     //public GameObject sattelitePrefab;
    	//public int satInLevel;
-    public GameObject ObjInLine;
+    public GameObject[] ObjInLine;
 
     //private List<GameObject> sattelites;
     private CmdStorageBehaviour storage;
@@ -62,7 +63,8 @@ public class InfoGodControl : MonoBehaviour {
             if (target != null && target.transform.tag=="command")
             {
                 isMouseDrag = true;
-                target.GetComponent<CommandObj>().setInLine(false);
+                //target.GetComponent<CommandObj>().setInLine(false);
+                target.GetComponent<DOTweenPath>().DOPause();
                 pickupPosition = target.transform.position;
                 //Debug.Log("target position :" + target.transform.position);
                 //Convert world position to screen position.
@@ -76,14 +78,16 @@ public class InfoGodControl : MonoBehaviour {
             isMouseDrag = false;
             if(droppedInLine())
             {
-                target.GetComponent<CommandObj>().setInLine(true);
-                target.transform.parent = ObjInLine.transform.parent;
-                target.transform.localPosition = new Vector3(target.transform.localPosition.x, 0.1f, 0.21f);
+                //target.GetComponent<CommandObj>().setInLine(true);
+                //target.transform.parent = ObjInLine.transform.parent;
+                //target.transform.localPosition = new Vector3(target.transform.localPosition.x, 0.1f, 0.21f);
+                target.GetComponent<DOTweenPath>().DORewind();
             }
             else
             {
                 target.transform.position = pickupPosition;
             }
+            target.GetComponent<DOTweenPath>().DOPlay();
         }
 
         if (isMouseDrag)
@@ -102,16 +106,20 @@ public class InfoGodControl : MonoBehaviour {
 
     private bool droppedInLine()
     {
-        Transform inline = ObjInLine.transform;
-        if (target.transform.position.x>inline.position.x-(inline.lossyScale.x/2) &&
+        //Transform inline = ObjInLine.transform;
+        foreach(GameObject objinline in ObjInLine)
+        {
+            Transform inline = objinline.transform;
+            if (target.transform.position.x > inline.position.x - (inline.lossyScale.x / 2) &&
             target.transform.position.x < inline.position.x + (inline.lossyScale.x / 2) &&
             target.transform.position.z > inline.position.z - (inline.lossyScale.z / 2) &&
-            target.transform.position.z < inline.position.z + (inline.lossyScale.z / 2) )
-        {
-            return true;
+            target.transform.position.z < inline.position.z + (inline.lossyScale.z / 2))
+            {
+                return true;
+            }
         }
-        else
-        { return false; }
+        
+         return false; 
     }
 
 	void OnTriggerEnter(Collider col)

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,16 +27,23 @@ public class CommandObj : MonoBehaviour {
         }
     }
 	
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag=="command")
         {
-            //this.GetComponent<DOTweenPath>().DOPlay();
+            this.GetComponent<DOTweenPath>().DOPause();
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.transform.tag == "command")
+        {
+            this.GetComponent<DOTweenPath>().DOPlay();
         }
     }
 
-    public void setInLine(bool value)
-    {
-        inLine = value;
-    }
+    //public void setInLine(bool value)
+    //{
+    //    inLine = value;
+    //}
 }

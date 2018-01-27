@@ -19,7 +19,7 @@ public class Sattelite : MonoBehaviour {
             other.transform.localPosition = new Vector3(0, 0.55f, 0);
             //transform.parent.GetComponent<CmdStorageBehaviour>().addCommand(new Command(other.GetComponent<CommandObj>().symbol, 10));
             transform.parent.GetComponent<CmdStorageBehaviour>().addCommand(other.GetComponent<CommandObj>());
-            other.GetComponent<CommandObj>().setInLine(false);
+            //other.GetComponent<CommandObj>().setInLine(false);
             other.GetComponent<Rigidbody>().isKinematic = true;
             _isUsed = true;
         }

@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1130363375138254}
+  m_RootGameObject: {fileID: 1290482851342230}
   m_IsPrefabParent: 1
---- !u!1 &1130363375138254
+--- !u!1 &1290482851342230
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4119163540033270}
-  - component: {fileID: 114629412311896350}
-  - component: {fileID: 114326138387726442}
+  - component: {fileID: 4214842305936478}
+  - component: {fileID: 114420618813310542}
+  - component: {fileID: 114913233729534634}
   m_Layer: 0
-  m_Name: GameManager 1
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4119163540033270
+--- !u!4 &4214842305936478
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1130363375138254}
+  m_GameObject: {fileID: 1290482851342230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 264.072, y: 128.11469, z: 1.5420542}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,15 +41,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114326138387726442
+--- !u!114 &114420618813310542
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1130363375138254}
+  m_GameObject: {fileID: 1290482851342230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3100dc60cba81c640b27e2056d51ff63, type: 3}
+  m_Script: {fileID: 11500000, guid: 91c5fbc4e1543954f9a91bb0c745a97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointText: {fileID: 0}
+  commandPrefab: {fileID: 1716771389785402, guid: 6956f08b6f072b7479c5b1017181122e,
+    type: 2}
+  commandParent: {fileID: 0}
+  infoTrain: {fileID: 0}
+--- !u!114 &114913233729534634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290482851342230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058c5f95fc4ee874981c9b6e74dcdb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   transmitterPrefab: {fileID: 1083704174577736, guid: ddbe260c8c5e7144389644eadb7917c0,
@@ -66,18 +82,3 @@ MonoBehaviour:
   heightOffset: 0
   maxNumberOfTransmitters: 0
   zombiesInAction: 0
---- !u!114 &114629412311896350
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1130363375138254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec7653484b0ab249832e544c834a866, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointText: {fileID: 0}
-  commandPrefab: {fileID: 0}
-  commandParent: {fileID: 0}
-  infoTrain: {fileID: 0}
