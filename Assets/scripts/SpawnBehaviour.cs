@@ -66,16 +66,16 @@ public class SpawnBehaviour : MonoBehaviour {
                 yComponent = Random.Range(-spawnZone.yMax, spawnZone.yMax);
                 break;
             case 1:
-                xComponent = spawnZone.xMin - 5;
+                xComponent = -spawnZone.xMax - 5;
                 yComponent = Random.Range(-spawnZone.yMax, spawnZone.yMax);
                 break;
             case 2:
                 xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
-                yComponent = spawnZone.yMax + 5;
+                yComponent = spawnZone.yMax + 2;
                 break;
             case 3:
                 xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
-                yComponent = spawnZone.yMin - 5;
+                yComponent = -spawnZone.yMax - 2;
                 break;
 
         }
@@ -85,6 +85,8 @@ public class SpawnBehaviour : MonoBehaviour {
             heightOffset,
             yComponent
             );
+
+        Debug.Log("On Frame Vector: " + spawnVector);
         return spawnVector;
     }
 }

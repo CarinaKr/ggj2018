@@ -7,7 +7,6 @@ public class GameControlBehaviour : MonoBehaviour {
 
 	public static GameControlBehaviour instance;
 
-	public GameObject infoGod;
     public Text pointText;
     public GameObject commandPrefab, commandParent;
 
