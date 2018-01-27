@@ -20,7 +20,9 @@ public class InfoGodControl : MonoBehaviour {
         storage = GetComponent<CmdStorageBehaviour>();
         //sattelites = new List<GameObject>();
         //createSattelites();
-	}
+        //DOTweenPath path = GetComponent<DOTweenPath>();
+        //path.duration = 10;
+    }
 	
 	//// Update is called once per frame
 	//void Update () {
@@ -75,19 +77,21 @@ public class InfoGodControl : MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0) && target.tag=="command")
         {
+            DOTweenPath path = target.GetComponent<DOTweenPath>();
             isMouseDrag = false;
             if(droppedInLine())
             {
                 //target.GetComponent<CommandObj>().setInLine(true);
                 //target.transform.parent = ObjInLine.transform.parent;
                 //target.transform.localPosition = new Vector3(target.transform.localPosition.x, 0.1f, 0.21f);
-                target.GetComponent<DOTweenPath>().DORewind();
+                path.DORestart(true);
             }
             else
             {
                 target.transform.position = pickupPosition;
             }
-            target.GetComponent<DOTweenPath>().DOPlay();
+
+            path.DOPlay();
         }
 
         if (isMouseDrag)

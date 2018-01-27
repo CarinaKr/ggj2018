@@ -52,7 +52,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1716771389785402}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -112,8 +112,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.063495636, y: 1.0347886, z: 1.2466713}
-  m_Center: {x: -0.46230507, y: -0.017394051, z: 0.1292978}
+  m_Size: {x: 0.9896107, y: 1.0347886, z: 1.2466713}
+  m_Center: {x: 0.00075244904, y: -0.017394053, z: 0.1292978}
 --- !u!65 &65856334674057272
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -139,6 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandSprite: {fileID: 21300000, guid: 617945f6deb9e6142bffb708d2acb2e5, type: 3}
   symbol: 0
+  arrow: {fileID: 1803677099458540, guid: 80ab3d218d4bd5744850bf6c6301c6d2, type: 2}
+  cross: {fileID: 0}
 --- !u!114 &114670434770840984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,7 +225,7 @@ MonoBehaviour:
   lookAtPosition: {x: 0, y: 0, z: 0}
   lookAhead: 0.01
   autoPlay: 1
-  autoKill: 1
+  autoKill: 0
   relative: 1
   isLocal: 1
   isClosedPath: 0

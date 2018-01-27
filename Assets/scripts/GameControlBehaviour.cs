@@ -22,7 +22,7 @@ public class GameControlBehaviour : MonoBehaviour {
         { Destroy(gameObject); }
 
         DontDestroyOnLoad(gameObject);
-        StartCoroutine("startCommands");
+        //StartCoroutine("createCommands",8);
 	}
 
 	//Destory the Tutorial Screen
@@ -56,11 +56,13 @@ public class GameControlBehaviour : MonoBehaviour {
         }
     }
     
-    public IEnumerator startCommands()
+    public IEnumerator createCommands(int amount)
     {
-        Instantiate(commandPrefab, commandParent.transform);
-        yield return new WaitForSeconds(1);
-        Instantiate(commandPrefab, commandParent.transform);
+        for(int i=0;i<amount;i++)
+        {
+            Instantiate(commandPrefab, commandParent.transform);
+            yield return new WaitForSeconds(1);
+        }
     }
 	void Update() {
         
