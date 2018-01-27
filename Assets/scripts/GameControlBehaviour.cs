@@ -7,7 +7,6 @@ public class GameControlBehaviour : MonoBehaviour {
 
 	public static GameControlBehaviour instance;
 
-	public GameObject transmitterPrefab;
 	public GameObject infoGod;
     public Text pointText;
 
@@ -55,4 +54,8 @@ public class GameControlBehaviour : MonoBehaviour {
             pointText.text = "Points: " + _points;
         }
     }
+
+	void Update() {
+        
+	}
 }
