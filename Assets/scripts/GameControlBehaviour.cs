@@ -8,7 +8,7 @@ public class GameControlBehaviour : MonoBehaviour {
 	public static GameControlBehaviour instance;
 
     public Text pointText;
-    public GameObject commandPrefab, commandParent;
+    public GameObject commandPrefab, commandParent, satelitePrefab;
 
     private int _points;
 	public GameObject infoTrain;
@@ -64,7 +64,4 @@ public class GameControlBehaviour : MonoBehaviour {
             yield return new WaitForSeconds(1);
         }
     }
-	void Update() {
-        
-	}
 }

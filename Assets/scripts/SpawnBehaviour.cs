@@ -69,7 +69,7 @@ public class SpawnBehaviour : MonoBehaviour {
         //Case 0: -| 
         //Case 1:  T
         //Case 2:  ⊥
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, 2))
         {
             case 0:
                 xComponent = spawnZone.xMax + spawnOnFrameOffsetX;
@@ -79,10 +79,10 @@ public class SpawnBehaviour : MonoBehaviour {
                 xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
                 yComponent = spawnZone.yMax + spawnOnFrameOffsetY;
                 break;
-            case 2:
-                xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
-                yComponent = -spawnZone.yMax - spawnOnFrameOffsetY;
-                break;
+            //case 2:
+            //  xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
+            //  yComponent = -spawnZone.yMax - spawnOnFrameOffsetY;
+            //  break;
 
         }
 

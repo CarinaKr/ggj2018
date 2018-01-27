@@ -140,10 +140,23 @@ public class InfoGodControl : MonoBehaviour {
     {
         if(col.transform.tag=="commandInLine")
         {
+            DifficultyControlBehaviour diffControl = GameControlBehaviour.instance.GetComponent<DifficultyControlBehaviour>();
+            SpawnBehaviour spawnBehaviour = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>();
+            GameObject infoTrain = GameControlBehaviour.instance.infoTrain;
+
             Debug.Log("Triggered Reching Base Event");
-            Vector3 parkPos = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>().getPositionInPark();
-            Vector3 outsidePos = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>().getPositionOnFrame();
-            GameControlBehaviour.instance.GetComponent<SpawnBehaviour>().Spawn(outsidePos, parkPos);
+            Vector3 parkPos = spawnBehaviour.getPositionInPark();
+            Vector3 outsidePos = spawnBehaviour.getPositionOnFrame();
+
+            spawnBehaviour.Spawn(outsidePos, parkPos);
+            diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.01f);
+
+            if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount) {
+                diffControl.addSatelite();
+            } else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
+            {
+                diffControl.destroyLastSatelite();
+            }
         }
     }
 }
