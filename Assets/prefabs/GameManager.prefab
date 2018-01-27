@@ -82,5 +82,5 @@ MonoBehaviour:
   heightOffset: 0.5
   maxNumberOfTransmitters: 0
   zombiesInAction: 0
-  spawnOnFrameOffsetX: 4
-  spawnOnFrameOffsetY: 4
+  spawnOnFrameOffsetX: 10
+  spawnOnFrameOffsetY: 2

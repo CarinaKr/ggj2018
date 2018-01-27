@@ -22,7 +22,7 @@ public class GameControlBehaviour : MonoBehaviour {
         { Destroy(gameObject); }
 
         DontDestroyOnLoad(gameObject);
-        //StartCoroutine("createCommands",8);
+        StartCoroutine("createCommands",8);
 	}
 
 	//Destory the Tutorial Screen

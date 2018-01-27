@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InfoGodControl : MonoBehaviour {
 
+    public static InfoGodControl instance; 
     //public GameObject sattelitePrefab;
    	//public int satInLevel;
     public GameObject[] ObjInLine;
@@ -12,28 +13,42 @@ public class InfoGodControl : MonoBehaviour {
     //private List<GameObject> sattelites;
     private CmdStorageBehaviour storage;
     private GameObject target;
-    private bool isMouseDrag;
+    private bool _isMouseDrag;
     private Vector3 screenPosition, offset, pickupPosition;
+
+    void Awake()
+    {
+        if(instance==null)
+        {
+            instance = this;
+        }
+        else if(instance!=this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
 
 	// Use this for initialization
 	void Start () {
         storage = GetComponent<CmdStorageBehaviour>();
         //sattelites = new List<GameObject>();
         //createSattelites();
-        StartCoroutine("speedUp");
+        //StartCoroutine("speedUp");
     }
 	
-    public IEnumerator speedUp()
-    {
-        DOTweenPath path = GetComponent<DOTweenPath>();
-        Tween t = GetComponent<DOTweenPath>().GetTween();
-        for (int i=0;i<20;i++)
-        {
-            // Change the timeScale to 2x
-            t.timeScale += 0.1f;
-            yield return new WaitForSeconds(1f);
-        }
-    }
+    //public IEnumerator speedUp()
+    //{
+    //    DOTweenPath path = GetComponent<DOTweenPath>();
+    //    Tween t = GetComponent<DOTweenPath>().GetTween();
+    //    for (int i=0;i<20;i++)
+    //    {
+    //        // Change the timeScale to 2x
+    //        t.timeScale += 0.1f;
+    //        yield return new WaitForSeconds(1f);
+    //    }
+    //}
 	//// Update is called once per frame
 	//void Update () {
 		
@@ -74,7 +89,7 @@ public class InfoGodControl : MonoBehaviour {
             target = ReturnClickedObject(out hitInfo);
             if (target != null && target.transform.tag=="command")
             {
-                isMouseDrag = true;
+                _isMouseDrag = true;
                 //target.GetComponent<CommandObj>().setInLine(false);
                 target.GetComponent<DOTweenPath>().DOPause();
                 pickupPosition = target.transform.position;
@@ -88,7 +103,7 @@ public class InfoGodControl : MonoBehaviour {
         if (Input.GetMouseButtonUp(0) && target.tag=="command")
         {
             DOTweenPath path = target.GetComponent<DOTweenPath>();
-            isMouseDrag = false;
+            _isMouseDrag = false;
             if(droppedInLine())
             {
                 //target.GetComponent<CommandObj>().setInLine(true);
@@ -104,7 +119,7 @@ public class InfoGodControl : MonoBehaviour {
             path.DOPlay();
         }
 
-        if (isMouseDrag)
+        if (_isMouseDrag)
         {
             //track mouse position.
             Vector3 currentScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z);
@@ -157,6 +172,14 @@ public class InfoGodControl : MonoBehaviour {
             {
                 diffControl.destroyLastSatelite();
             }
+        }
+    }
+
+    public bool isMouseDrag
+    {
+        get
+        {
+            return _isMouseDrag;
         }
     }
 }
