@@ -113,4 +113,12 @@ public class InfoGodControl : MonoBehaviour {
         else
         { return false; }
     }
+
+	void OnTriggerEnter(Collider col)
+    {
+        Debug.Log("Triggered Reching Base Event");
+        Vector3 parkPos = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>().getPositionInPark();
+        Vector3 outsidePos = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>().getPositionOnFrame();
+        GameControlBehaviour.instance.GetComponent<SpawnBehaviour>().Spawn(outsidePos, parkPos);
+    }
 }

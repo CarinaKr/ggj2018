@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33390608105387128}
   - component: {fileID: 65129802662016214}
   - component: {fileID: 23609117616979136}
-  - component: {fileID: 114088078072718014}
+  - component: {fileID: 114488722051627714}
   m_Layer: 0
   m_Name: ZombiePointOfInterest
   m_TagString: POI
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114088078072718014
+--- !u!114 &114488722051627714
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361807369591160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee01c12fb51c02488c77625489ded5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 221c0fac8a169f54d9da6416d9b39886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointOfInteresest: 0

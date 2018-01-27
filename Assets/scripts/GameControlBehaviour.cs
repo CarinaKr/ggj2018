@@ -7,7 +7,6 @@ public class GameControlBehaviour : MonoBehaviour {
 
 	public static GameControlBehaviour instance;
 
-	public GameObject transmitterPrefab;
 	public GameObject infoGod;
     public Text pointText;
     public GameObject commandPrefab, commandParent;
@@ -58,10 +57,16 @@ public class GameControlBehaviour : MonoBehaviour {
         }
     }
 
+<<<<<<< HEAD
     public IEnumerator startCommands()
     {
         Instantiate(commandPrefab, commandParent.transform);
         yield return new WaitForSeconds(1);
         Instantiate(commandPrefab, commandParent.transform);
     }
+=======
+	void Update() {
+        
+	}
+>>>>>>> 56343b3a5b51d0a20de1f4b20b4c3adb8058c9c3
 }
