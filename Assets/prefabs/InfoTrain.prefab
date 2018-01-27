@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 65422941472705312}
   - component: {fileID: 23805975454001560}
   - component: {fileID: 54196516973014894}
-  - component: {fileID: 114238712775467704}
   - component: {fileID: 114815751936037354}
+  - component: {fileID: 114604879016165288}
+  - component: {fileID: 114628624398303944}
   m_Layer: 0
   m_Name: InfoTrain
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378671284371132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 0, z: 0}
+  m_LocalPosition: {x: -1.52, y: 0, z: -2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,7 +52,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378671284371132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -113,7 +114,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114238712775467704
+--- !u!114 &114604879016165288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1378671284371132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477dc098bbd42c247a10335f9d8434d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sattelitePrefab: {fileID: 1130763108592892, guid: 09fba025341b287428050cac3d9f110e,
+    type: 2}
+  satInLevel: 2
+--- !u!114 &114628624398303944
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -195,52 +210,52 @@ MonoBehaviour:
   orientType: 1
   lookAtTransform: {fileID: 0}
   lookAtPosition: {x: 0, y: 0, z: 0}
-  lookAhead: 0.05
+  lookAhead: 0.01
   autoPlay: 1
   autoKill: 1
-  relative: 0
+  relative: 1
   isLocal: 1
   isClosedPath: 1
   pathResolution: 10
-  pathMode: 1
-  lockRotation: 8
+  pathMode: 2
+  lockRotation: 0
   assignForwardAndUp: 0
   forwardDirection: {x: 0, y: 0, z: 1}
   upDirection: {x: 0, y: 1, z: 0}
   tweenRigidbody: 0
   wps:
-  - {x: -1.8873963, y: -0.16301155, z: 7.1401887}
-  - {x: 16.440855, y: -0.17051888, z: 7.490972}
-  - {x: 16.409796, y: 0.1341114, z: -5.852622}
-  - {x: -1.5899283, y: 0.13303947, z: -5.827135}
+  - {x: -1.2976167, y: 0.74824333, z: 9.562387}
+  - {x: 17.985907, y: 0.32071304, z: 9.680792}
+  - {x: 20.058243, y: -0.3298416, z: -14.378931}
+  - {x: -1.9372772, y: -0.35304642, z: -14.557074}
   fullWps: []
   path:
     wpLengths:
     - 0
-    - 7.142584
-    - 18.33161
-    - 13.347106
-    - 17.99974
-    - 5.832438
+    - 11.688481
+    - 19.288626
+    - 24.157568
+    - 21.996252
+    - 12.469059
     type: 0
     subdivisionsXSegment: 10
     subdivisions: 60
     wps:
-    - {x: -1.8, y: 0, z: 0}
-    - {x: -1.8873963, y: -0.16301155, z: 7.1401887}
-    - {x: 16.440855, y: -0.17051888, z: 7.490972}
-    - {x: 16.409796, y: 0.1341114, z: -5.852622}
-    - {x: -1.5899283, y: 0.13303947, z: -5.827135}
-    - {x: -1.8, y: 0, z: 0}
+    - {x: -1.52, y: 0, z: -2.1}
+    - {x: -1.2976167, y: 0.74824333, z: 9.562387}
+    - {x: 17.985907, y: 0.32071304, z: 9.680792}
+    - {x: 20.058243, y: -0.3298416, z: -14.378931}
+    - {x: -1.9372772, y: -0.35304642, z: -14.557074}
+    - {x: -1.52, y: 0, z: -2.1}
     controlPoints: []
-    length: 62.65348
+    length: 89.59999
     isFinalized: 1
     timesTable:
     - 0
-    - 0.11400139
-    - 0.40658864
-    - 0.6196192
-    - 0.9069096
+    - 0.13045181
+    - 0.3457267
+    - 0.6153424
+    - 0.8608363
     - 1
     lengthsTable: []
   inspectorMode: 0
@@ -252,7 +267,7 @@ MonoBehaviour:
   showIndexes: 1
   showWpLength: 0
   pathColor: {r: 1, g: 1, b: 1, a: 0.5}
-  lastSrcPosition: {x: -1.8, y: 0, z: 0}
+  lastSrcPosition: {x: -1.52, y: 0, z: -2.1}
   wpsDropdown: 0
   dropToFloorOffset: 0
 --- !u!114 &114815751936037354

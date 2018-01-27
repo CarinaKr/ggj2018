@@ -7,9 +7,29 @@ public class CommandObj : MonoBehaviour {
     public Sprite commandSprite;
     public Command command;
 
-	// Use this for initialization
-	void Start () {
+    public bool inLine;
+    private Rigidbody rb;
+    private Vector3 move;
+    //public int index
+    //{
+    //    set { index = value; }
+    //    get { return index; }
+    //}
+
+    // Use this for initialization
+    void Start () {
         transform.GetComponent<SpriteRenderer>().sprite = commandSprite;
+        rb = transform.GetComponent<Rigidbody>();
+        move = new Vector3(10, 0, 0);
 	}
+
+    void FixedUpdate()
+    {
+        if(inLine)
+        {
+            rb.AddForce(move);
+        }
+    }
 	
+    
 }
