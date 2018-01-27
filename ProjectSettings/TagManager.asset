@@ -9,6 +9,7 @@ TagManager:
   - transmitter
   - train
   - POI
+  - commandInLine
   layers:
   - Default
   - TransparentFX

@@ -30,7 +30,7 @@ public class CommandObj : MonoBehaviour {
     {
         if(other.transform.tag=="command")
         {
-            this.GetComponent<DOTweenPath>().DOPlay();
+            //this.GetComponent<DOTweenPath>().DOPlay();
         }
     }
 
