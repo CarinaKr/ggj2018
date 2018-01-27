@@ -13,7 +13,7 @@ public class CommandObj : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        transform.GetComponent<SpriteRenderer>().sprite = commandSprite;
+        //transform.GetComponent<SpriteRenderer>().sprite = commandSprite;
         rb = transform.GetComponent<Rigidbody>();
         move = new Vector3(5, 0, 0);
 	}
