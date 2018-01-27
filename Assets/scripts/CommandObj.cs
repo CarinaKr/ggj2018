@@ -26,6 +26,14 @@ public class CommandObj : MonoBehaviour {
         }
     }
 	
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.transform.tag=="command")
+        {
+            this.GetComponent<DOTweenPath>().DOPlay();
+        }
+    }
+
     public void setInLine(bool value)
     {
         inLine = value;

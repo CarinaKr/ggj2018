@@ -10,6 +10,7 @@ public class GameControlBehaviour : MonoBehaviour {
 	public GameObject transmitterPrefab;
 	public GameObject infoGod;
     public Text pointText;
+    public GameObject commandPrefab, commandParent;
 
     private int _points;
 	public GameObject infoTrain;
@@ -23,6 +24,7 @@ public class GameControlBehaviour : MonoBehaviour {
         { Destroy(gameObject); }
 
         DontDestroyOnLoad(gameObject);
+        StartCoroutine("startCommands");
 	}
 
 	//Destory the Tutorial Screen
@@ -54,5 +56,12 @@ public class GameControlBehaviour : MonoBehaviour {
             _points = value;
             pointText.text = "Points: " + _points;
         }
+    }
+
+    public IEnumerator startCommands()
+    {
+        Instantiate(commandPrefab, commandParent.transform);
+        yield return new WaitForSeconds(1);
+        Instantiate(commandPrefab, commandParent.transform);
     }
 }

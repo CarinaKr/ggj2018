@@ -55,3 +55,7 @@ MonoBehaviour:
     type: 2}
   infoGod: {fileID: 1404195275422164, guid: 7bd08ec1af0b9954c86e732870d9c4fe, type: 2}
   pointText: {fileID: 0}
+  commandPrefab: {fileID: 1716771389785402, guid: 6956f08b6f072b7479c5b1017181122e,
+    type: 2}
+  commandParent: {fileID: 0}
+  infoTrain: {fileID: 0}
