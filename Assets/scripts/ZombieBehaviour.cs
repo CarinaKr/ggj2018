@@ -18,7 +18,7 @@ public class ZombieBehaviour : MonoBehaviour {
     public float healthFactor, stepCountFactor;
     public Health health;
 
-    private int optimalStepCount;
+    private int optimalStepCount=1;
     private int stepsTaken;
     
     void Start()
@@ -79,5 +79,12 @@ public class ZombieBehaviour : MonoBehaviour {
     {
         float points = health.health * healthFactor + (stepsTaken/optimalStepCount) * stepCountFactor;
         GameControlBehaviour.instance.points = (int)points;
+        StartCoroutine("deleteZombie");
+    }
+
+    public IEnumerator deleteZombie()
+    {
+        Destroy(gameObject);
+        return null;
     }
 }
