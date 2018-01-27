@@ -20,10 +20,20 @@ public class InfoGodControl : MonoBehaviour {
         storage = GetComponent<CmdStorageBehaviour>();
         //sattelites = new List<GameObject>();
         //createSattelites();
-        //DOTweenPath path = GetComponent<DOTweenPath>();
-        //path.duration = 10;
+        StartCoroutine("speedUp");
     }
 	
+    public IEnumerator speedUp()
+    {
+        DOTweenPath path = GetComponent<DOTweenPath>();
+        Tween t = GetComponent<DOTweenPath>().GetTween();
+        for (int i=0;i<20;i++)
+        {
+            // Change the timeScale to 2x
+            t.timeScale += 0.1f;
+            yield return new WaitForSeconds(1f);
+        }
+    }
 	//// Update is called once per frame
 	//void Update () {
 		
