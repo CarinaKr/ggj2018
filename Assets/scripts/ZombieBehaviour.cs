@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieBehaviour : MonoBehaviour {
+public enum POI
+{
+    MALE,
+    FEMALE,
+    BENCH,
+    ICE,
+    FLOWERS
+}
 
-<<<<<<< HEAD
+public class ZombieBehaviour : MonoBehaviour {
+    
     public float stepLength = 1f;
     public POI goalPOI;
     public float healthFactor, stepCountFactor;
@@ -17,33 +25,44 @@ public class ZombieBehaviour : MonoBehaviour {
     {
         health = GetComponent<Health>();
     }
-=======
-	public float moveForce = 1f;
->>>>>>> a3de486d6368181704a44dfd6c82667af7d8cbe3
 
-	public void Move(Symbol symbol){
-		Debug.Log ("Moving " + name);
-		switch (symbol) {
-		case Symbol.MOVEDOWN:
-			GetComponent<Rigidbody> ().AddForce (Vector3.back * moveForce);
-			break;
+    public void Move(Symbol symbol)
+    {
+        Debug.Log("Moving " + name);
+        switch (symbol)
+        {
+            case Symbol.MOVEDOWN:
+                //GetComponent<Rigidbody> ().AddForce (Vector3.back * moveForce);
+                transform.Translate(Vector3.back * stepLength);
+                stepsTaken++;
+                health.Move();
+                break;
 
-		case Symbol.MOVEUP:
-			GetComponent<Rigidbody> ().AddForce (Vector3.forward * moveForce);
-			break;
+            case Symbol.MOVEUP:
+                //GetComponent<Rigidbody> ().AddForce (Vector3.forward * moveForce);
+                transform.Translate(Vector3.forward * stepLength);
+                stepsTaken++;
+                health.Move();
+                break;
 
-		case Symbol.MOVELEFT:
-			GetComponent<Rigidbody> ().AddForce (Vector3.left * moveForce);
-			break;
+            case Symbol.MOVELEFT:
+                //GetComponent<Rigidbody> ().AddForce (Vector3.left * moveForce);
+                transform.Translate(Vector3.left * stepLength);
+                stepsTaken++;
+                health.Move();
+                break;
 
-		case Symbol.MOVERIGHT:
-			GetComponent<Rigidbody> ().AddForce (Vector3.right * moveForce);
-			break;
-		case Symbol.CROSS:
-			break;
-		}
-	}
-<<<<<<< HEAD
+            case Symbol.MOVERIGHT:
+                //GetComponent<Rigidbody> ().AddForce (Vector3.right * moveForce);
+                transform.Translate(Vector3.right * stepLength);
+                stepsTaken++;
+                health.Move();
+                break;
+            case Symbol.CROSS:
+                health.NotMove();
+                break;
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -61,6 +80,4 @@ public class ZombieBehaviour : MonoBehaviour {
         float points = health.health * healthFactor + (stepsTaken/optimalStepCount) * stepCountFactor;
         GameControlBehaviour.instance.points = (int)points;
     }
-=======
->>>>>>> a3de486d6368181704a44dfd6c82667af7d8cbe3
 }
