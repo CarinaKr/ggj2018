@@ -10,14 +10,15 @@ public class CmdTransmitBehaviour : MonoBehaviour {
 		for (int i=0;i<commands.Count;i++)
         {
             Debug.Log ("Will send Symbol: " + commands[i].symbol);
-            CmdStorageBehaviour.instance.deleteSymbol(i);
 			receiver.GetComponent<ZombieBehaviour>().Move(commands[i].symbol);
 			receiver.GetComponent<Health>().ChangeHealth(commands[i].dopaminBoost);
             //TODO: delete commandObj here
             if(commands[i].symbol==Symbol.CROSS)
             {
+                CmdStorageBehaviour.instance.deleteSymbol(i);
                 return;
             }
-		}
+            CmdStorageBehaviour.instance.deleteSymbol(i);
+        }
 	}
 }

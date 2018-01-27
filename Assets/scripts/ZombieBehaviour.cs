@@ -21,6 +21,10 @@ public class ZombieBehaviour : MonoBehaviour {
     private int optimalStepCount;
     private int stepsTaken;
     
+    void Start()
+    {
+        health = GetComponent<Health>();
+    }
 
 	public void Move(Symbol symbol){
 		Debug.Log ("Moving " + name);
@@ -71,7 +75,7 @@ public class ZombieBehaviour : MonoBehaviour {
 
     private void goalReached()
     {
-        float points = health.health * healthFactor + stepsTaken * stepCountFactor;
+        float points = health.health * healthFactor + (stepsTaken/optimalStepCount) * stepCountFactor;
         GameControlBehaviour.instance.points = (int)points;
     }
 }
