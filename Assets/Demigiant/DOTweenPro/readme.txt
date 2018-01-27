@@ -10,7 +10,7 @@ Do this AFTER you have imported other plugins, so they will be recognized and if
 - To animate a gameObject along a path, select it and choose "Add Component > DOTween > DOTween Path"
 
 // SCRIPTING
-- In your code, add "using DG.Tweening" to each class where you want to use DOTween.
+- In your symbol, add "using DG.Tweening" to each class where you want to use DOTween.
 - You're ready to tween. Check out the links below for full documentation and license info.
 
 
@@ -18,7 +18,7 @@ Do this AFTER you have imported other plugins, so they will be recognized and if
 
 DOTween website (documentation, examples, etc): http://dotween.demigiant.com
 DOTween license: http://dotween.demigiant.com/license.php
-DOTween repository (Google Code): https://code.google.com/p/dotween/
+DOTween repository (Google symbol): https://symbol.google.com/p/dotween/
 
 // NOTES //////////////////////////////////////////////////////
 

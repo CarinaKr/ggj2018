@@ -5,7 +5,7 @@ using UnityEngine;
 public class CommandObj : MonoBehaviour {
 
     public Sprite commandSprite;
-    public Command command;
+	public Symbol symbol;
 
     public bool inLine;
     private Rigidbody rb;

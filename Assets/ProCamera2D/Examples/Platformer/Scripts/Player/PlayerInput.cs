@@ -46,8 +46,8 @@ namespace Com.LuisPedroFonseca.ProCamera2D.Platformer
 
             // Jump
             if ((Input.GetKeyDown(KeyCode.W) || 
-                Input.GetKeyDown(KeyCode.Space) ||
-                Input.GetKeyDown(KeyCode.UpArrow)) 
+				Input.GetKeyDown(KeyCode.Space) ||
+				Input.GetKeyDown(KeyCode.UpArrow)) 
                 && totalJumps < jumpsAllowed)
             {
                 totalJumps++;

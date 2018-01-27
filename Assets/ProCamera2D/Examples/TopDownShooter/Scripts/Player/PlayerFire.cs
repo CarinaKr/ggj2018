@@ -22,7 +22,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D.TopDownShooter
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+			if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 StartCoroutine(Fire());
             }
@@ -30,7 +30,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D.TopDownShooter
 
         IEnumerator Fire()
         {
-            while (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+			while (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
             {
                 var bullet = BulletPool.nextThing; 
                 bullet.transform.position = WeaponTip.position;

@@ -14,18 +14,18 @@ public class CmdStorageBehaviour : MonoBehaviour {
     {
         commands.Clear();
     }
-    public void deleteCommand(int index)
+    public void deleteSymbol(int index)
     {
         commands.RemoveAt(index);
     }
-    public void addCommand(Command com)
+	public void addCommand(Command com)
     {
         commands.Add(com);
     }
 
 	void Start(){
 		commands = new List<Command> ();
-		commands.Add (Command.MOVEUP);
+		commands.Add (new Command(Symbol.MOVEDOWN, 10));
 	}
 
 }

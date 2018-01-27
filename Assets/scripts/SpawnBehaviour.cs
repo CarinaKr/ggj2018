@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SymbolSequencer : MonoBehaviour {
+public class SpawnBehaviour : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+	public GameObject spawnPrefab;
+
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void Spawn(){
+		Instantiate (spawnPrefab);
 	}
 }
