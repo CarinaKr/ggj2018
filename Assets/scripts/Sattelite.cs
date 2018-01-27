@@ -21,6 +21,7 @@ public class Sattelite : MonoBehaviour {
             transform.parent.GetComponent<CmdStorageBehaviour>().addCommand(other.GetComponent<CommandObj>());
             other.GetComponent<Rigidbody>().isKinematic = true;
             _isUsed = true;
+            GameControlBehaviour.instance.StartCoroutine("createCommands", 1);
         }
     }
 

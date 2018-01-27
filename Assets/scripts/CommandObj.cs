@@ -24,7 +24,8 @@ public class CommandObj : MonoBehaviour {
         MeshFilter meshFilter = GetComponent<MeshFilter>();
         if(symbol==Symbol.CROSS)
         {
-            //Instantiate(cross,transform);
+            GameObject child = Instantiate(cross, transform);
+            child.transform.Rotate(child.transform.up, 45);
         }
         else
         {
