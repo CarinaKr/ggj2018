@@ -128,6 +128,7 @@ MonoBehaviour:
   sattelitePrefab: {fileID: 1130763108592892, guid: 09fba025341b287428050cac3d9f110e,
     type: 2}
   satInLevel: 2
+  ObjInLine: {fileID: 0}
 --- !u!114 &114628624398303944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,7 +218,7 @@ MonoBehaviour:
   isLocal: 1
   isClosedPath: 1
   pathResolution: 10
-  pathMode: 2
+  pathMode: 1
   lockRotation: 0
   assignForwardAndUp: 0
   forwardDirection: {x: 0, y: 0, z: 1}

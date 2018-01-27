@@ -7,20 +7,15 @@ public class CommandObj : MonoBehaviour {
     public Sprite commandSprite;
 	public Symbol symbol;
 
-    public bool inLine;
+    private bool inLine;
     private Rigidbody rb;
     private Vector3 move;
-    //public int index
-    //{
-    //    set { index = value; }
-    //    get { return index; }
-    //}
 
     // Use this for initialization
     void Start () {
         transform.GetComponent<SpriteRenderer>().sprite = commandSprite;
         rb = transform.GetComponent<Rigidbody>();
-        move = new Vector3(10, 0, 0);
+        move = new Vector3(5, 0, 0);
 	}
 
     void FixedUpdate()
@@ -31,5 +26,8 @@ public class CommandObj : MonoBehaviour {
         }
     }
 	
-    
+    public void setInLine(bool value)
+    {
+        inLine = value;
+    }
 }
