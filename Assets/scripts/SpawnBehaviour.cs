@@ -12,6 +12,8 @@ public class SpawnBehaviour : MonoBehaviour {
     public float heightOffset;
 	public int maxNumberOfTransmitters;
 	public int zombiesInAction = 0;
+    public float spawnOnFrameOffsetX = 5f;
+    public float spawnOnFrameOffsetY = 2f;
 
 	public void Start(){
         maxNumberOfTransmitters = startingTransmitters;
@@ -38,6 +40,10 @@ public class SpawnBehaviour : MonoBehaviour {
 				zombieSpawnPos,
                 Quaternion.identity,
 				zombies.transform) as GameObject;
+
+            zombieObj.GetComponent<ZombieBehaviour>().goalPOI = (POI)Random.Range(0, 5);
+
+            transmitterObj.transform.LookAt(zombieObj.transform.position);
 			
 			transmitterObj.GetComponent<CmdTransmitBehaviour> ().receiver = zombieObj;
 			zombiesInAction += 1;
@@ -54,28 +60,28 @@ public class SpawnBehaviour : MonoBehaviour {
         return spawnVector;
     }
 
+    // Get a Position, that is outside of the Park, next to the orbit of the satelite
     public Vector3 getPositionOnFrame(){
 
         float xComponent = 0f;
         float yComponent = 0f;
 
-        switch (Random.Range(0, 4))
+        //Case 0: -| 
+        //Case 1:  T
+        //Case 2:  ⊥
+        switch (Random.Range(0, 3))
         {
             case 0:
-                xComponent = spawnZone.xMax + 5;
+                xComponent = spawnZone.xMax + spawnOnFrameOffsetX;
                 yComponent = Random.Range(-spawnZone.yMax, spawnZone.yMax);
                 break;
             case 1:
-                xComponent = -spawnZone.xMax - 5;
-                yComponent = Random.Range(-spawnZone.yMax, spawnZone.yMax);
+                xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
+                yComponent = spawnZone.yMax + spawnOnFrameOffsetY;
                 break;
             case 2:
                 xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
-                yComponent = spawnZone.yMax + 2;
-                break;
-            case 3:
-                xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
-                yComponent = -spawnZone.yMax - 2;
+                yComponent = -spawnZone.yMax - spawnOnFrameOffsetY;
                 break;
 
         }

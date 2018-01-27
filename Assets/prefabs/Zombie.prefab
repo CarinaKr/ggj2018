@@ -24,9 +24,7 @@ GameObject:
   - component: {fileID: 23663760757198714}
   - component: {fileID: 54244540997148482}
   - component: {fileID: 114966909717056868}
-  - component: {fileID: 114195723730968624}
-  - component: {fileID: 114544689344495538}
-  - component: {fileID: 114194613630816048}
+  - component: {fileID: 114640376775591016}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -103,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114194613630816048
+--- !u!114 &114640376775591016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -111,41 +109,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855249475321374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8691d70fb22c8849a2ef616a5492875, type: 3}
+  m_Script: {fileID: 11500000, guid: 854ad4f50fb75c049a74e3bc9fd11088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
   healthChangeOnCollision: -1
   healthChangeOnNotMove: -1
   healthCangeOnMove: 1
---- !u!114 &114195723730968624
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1855249475321374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a91f77722c3ad48e3b7f7c3dbe368d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
---- !u!114 &114544689344495538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1855249475321374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 922eb04175ab6554caa25a0472b20230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stepLength: 1
-  goalPOI: 0
-  healthFactor: 0
-  stepCountFactor: 0
-  health: {fileID: 0}
 --- !u!114 &114966909717056868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,7 +131,7 @@ MonoBehaviour:
   goalPOI: 0
   healthFactor: 0
   stepCountFactor: 0
-  health: {fileID: 0}
+  health: {fileID: 114640376775591016}
 --- !u!135 &135287590752519068
 SphereCollider:
   m_ObjectHideFlags: 1
