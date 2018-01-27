@@ -7,7 +7,8 @@ public class CmdReceiveBehaviour : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
         if(other.transform.tag=="train" )
         {
-            List<Command> com = other.gameObject.GetComponent<CmdStorageBehaviour>().Commands;
+            CmdStorageBehaviour storage = other.gameObject.GetComponent<CmdStorageBehaviour>();
+            List<CommandObj> com = storage.Commands;
             GetComponent<CmdTransmitBehaviour>().SendCmd(com);
         }
        

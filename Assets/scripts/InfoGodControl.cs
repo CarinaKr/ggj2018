@@ -71,7 +71,7 @@ public class InfoGodControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && target.tag=="command")
         {
             isMouseDrag = false;
             if(droppedInLine())
