@@ -62,9 +62,5 @@ public class CommandObj : MonoBehaviour {
             this.GetComponent<DOTweenPath>().DOPlay();
         }
     }
-
-    //public void setInLine(bool value)
-    //{
-    //    inLine = value;
-    //}
+    
 }
