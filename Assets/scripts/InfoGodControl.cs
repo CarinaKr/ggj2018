@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class InfoGodControl : MonoBehaviour {
 
-    public GameObject sattelitePrefab;
-    public int satInLevel;
+    //public GameObject sattelitePrefab;
+   	//public int satInLevel;
     public GameObject ObjInLine;
 
-    private List<GameObject> sattelites;
+    //private List<GameObject> sattelites;
     private CmdStorageBehaviour storage;
     private GameObject target;
     private bool isMouseDrag;
@@ -17,8 +17,8 @@ public class InfoGodControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         storage = GetComponent<CmdStorageBehaviour>();
-        sattelites = new List<GameObject>();
-        createSattelites();
+        //sattelites = new List<GameObject>();
+        //createSattelites();
 	}
 	
 	//// Update is called once per frame
@@ -26,16 +26,16 @@ public class InfoGodControl : MonoBehaviour {
 		
 	//}
 
-    void createSattelites()
-    {
-        for (int i = 0; i < satInLevel; i++)
-        {
-            //sattelitePrefab.GetComponent<CommandObj>().index = i;
-            GameObject sat = Instantiate(sattelitePrefab, transform);
-            sat.transform.localPosition = new Vector3(0,0, i);
-            sattelites.Add(sat);
-        }
-    }
+//    void createSattelites()
+//    {
+//        for (int i = 0; i < satInLevel; i++)
+//        {
+//            //sattelitePrefab.GetComponent<CommandObj>().index = i;
+//            GameObject sat = Instantiate(sattelitePrefab, transform);
+//            sat.transform.localPosition = new Vector3(0,0, i);
+//            sattelites.Add(sat);
+//        }
+//    }
 
 	void SendInfoSequence () {
 
