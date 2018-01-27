@@ -13,7 +13,7 @@ public class Sattelite : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "command" && !_isUsed)
+        if (other.transform.tag == "command" && !_isUsed && !InfoGodControl.instance.isMouseDrag)
         {
             other.transform.parent = transform;
             other.transform.localPosition = new Vector3(0, 0.55f, 0);
