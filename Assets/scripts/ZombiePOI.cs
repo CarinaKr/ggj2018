@@ -5,6 +5,5 @@ using UnityEngine;
 public class ZombiePOI : MonoBehaviour {
 
     public POI pointOfInteresest;
-
-
+    
 }

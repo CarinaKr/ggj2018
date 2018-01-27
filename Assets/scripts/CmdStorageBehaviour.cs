@@ -6,8 +6,8 @@ public class CmdStorageBehaviour : MonoBehaviour {
 
     public static CmdStorageBehaviour instance;
 
-	private List<Command> commands;
-	public List<Command> Commands {
+	private List<CommandObj> commands;
+	public List<CommandObj> Commands {
 		set{commands = value;}
 		get{ return commands;}
 	}
@@ -28,17 +28,19 @@ public class CmdStorageBehaviour : MonoBehaviour {
     {
         commands.Clear();
     }
-    public void deleteSymbol(int index)
+    public void deleteCommand(int index)
     {
+        commands[index].transform.parent.GetComponent<Sattelite>().isUsed = false;
+        Destroy(commands[index].gameObject);
         commands.RemoveAt(index);
     }
-	public void addCommand(Command com)
+	public void addCommand(CommandObj com)
     {
         commands.Add(com);
     }
 
 	void Start(){
-		commands = new List<Command> ();
+		commands = new List<CommandObj> ();
 	}
 
 }

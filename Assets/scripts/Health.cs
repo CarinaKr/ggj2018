@@ -9,6 +9,13 @@ public class Health : MonoBehaviour {
     public int healthChangeOnNotMove = -1;
     public int healthCangeOnMove = 1;
 
+    private int maxHealth;
+
+    void Start()
+    {
+        maxHealth = health;
+    }
+
 	void OnCollisionEnter(Collision col){
 		if (col.gameObject.GetComponent<Health> () != null) {
 			ChangeHealth ( col.gameObject.GetComponent<Health>().healthChangeOnCollision);
@@ -16,7 +23,10 @@ public class Health : MonoBehaviour {
 	}
 
 	public void ChangeHealth(int change){
-		health += change;
+        if (change >= 0 && health < maxHealth)
+        { health += change; }
+        else if(change<0 && health>0)
+        { health += change; }
 	}
 
     public void NotMove()
