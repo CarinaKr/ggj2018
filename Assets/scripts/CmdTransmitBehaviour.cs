@@ -9,7 +9,7 @@ public class CmdTransmitBehaviour : MonoBehaviour {
 	public void SendCmd(List<Command> commands){
 		foreach (Command command in commands){
 			Debug.Log ("Will send Symbol: " + command.symbol);
-			receiver.GetComponent<ZombieMovementBehaviour>().Move(command.symbol);
+			receiver.GetComponent<ZombieBehaviour>().Move(command.symbol);
 			receiver.GetComponent<Health>().ChangeHealth(command.dopaminBoost);
 		}
 	}

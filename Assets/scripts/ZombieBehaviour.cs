@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieMovementBehaviour : MonoBehaviour {
+public class ZombieBehaviour : MonoBehaviour {
 
 	public float moveForce = 1f;
 

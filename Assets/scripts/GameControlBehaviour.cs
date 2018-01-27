@@ -6,24 +6,20 @@ public class GameControlBehaviour : MonoBehaviour {
 
 	public static GameControlBehaviour instance;
 
-	public GameObject transmitterPrefab;
-
-	public GameObject infoGod;
-
+	public GameObject infoTrain;
 
 	void Awake() {
         if (instance == null)
-        { instance = this; }
+        { 
+			instance = this;
+		}
         else
         { Destroy(gameObject); }
 
         DontDestroyOnLoad(gameObject);
 	}
-		
-	public void IncreaseSatelites(){
-		Instantiate (transmitterPrefab);
-	}
 
+	//Destory the Tutorial Screen
 	public void StartGame(GameObject canvas) {
 		Destroy (canvas);
 	}
@@ -39,5 +35,6 @@ public class GameControlBehaviour : MonoBehaviour {
 	public void UnPauseGame(){
 		Time.timeScale = 1f;
 	}
+		
 
 }
