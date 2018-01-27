@@ -12,8 +12,12 @@ public class GameControlBehaviour : MonoBehaviour {
 
 
 	void Awake() {
-		if (instance == null)
-			instance = this;
+        if (instance == null)
+        { instance = this; }
+        else
+        { Destroy(gameObject); }
+
+        DontDestroyOnLoad(gameObject);
 	}
 		
 	public void IncreaseSatelites(){
