@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454e3b7af82ad5749b7b1e3296f0151c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOfInteresest: 2
+  pointOfInteresest: 0
 --- !u!65 &102727850
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1459,7 +1459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454e3b7af82ad5749b7b1e3296f0151c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOfInteresest: 0
+  pointOfInteresest: 1
 --- !u!1 &414293767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,6 +2561,10 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 2.734
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: cf82a926b8fd1df41a027076607c7208, type: 3}
+      propertyPath: m_TagString
+      value: POI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf82a926b8fd1df41a027076607c7208, type: 3}
   m_IsPrefabParent: 0
@@ -2579,10 +2583,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 657399873}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
@@ -2658,6 +2662,18 @@ MeshCollider:
   m_CookingOptions: -1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: cf82a926b8fd1df41a027076607c7208, type: 3}
+--- !u!114 &657399883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 657399873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454e3b7af82ad5749b7b1e3296f0151c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointOfInteresest: 2
 --- !u!1 &682547723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4146,7 +4162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454e3b7af82ad5749b7b1e3296f0151c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOfInteresest: 2
+  pointOfInteresest: 0
 --- !u!1001 &1326419173
 Prefab:
   m_ObjectHideFlags: 0
@@ -4459,7 +4475,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400020, guid: 800a78065e188754b8f9fc54f6bb9b02, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423100678}
-  m_LocalRotation: {x: 0.18301274, y: 0.6830129, z: -0.68301266, w: -0.18301256}
+  m_LocalRotation: {x: 0.18301272, y: 0.68301284, z: -0.6830126, w: -0.18301255}
   m_LocalPosition: {x: -1.1421951, y: 0.60131824, z: 0.6098226}
   m_LocalScale: {x: 6.716425, y: 6.716425, z: 7.073437}
   m_Children: []
@@ -5346,12 +5362,12 @@ Prefab:
     - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
         type: 2}
       propertyPath: zombiesOnStart
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
         type: 2}
       propertyPath: maxNumberOfTransmitters
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114965323959725240, guid: ac849dd79f1ae1a4282a5724e8f5af41,
         type: 2}
