@@ -11,7 +11,6 @@ public class InfoGodControl : MonoBehaviour
     public int satInLevel;
     public GameObject[] ObjInLine;
     public GameObject cmdSpawn;
-    public int cyclesForChange;
 
     private List<GameObject> sattelites;
     private CmdStorageBehaviour storage;
@@ -137,7 +136,7 @@ public class InfoGodControl : MonoBehaviour
 
             diffControl.cycleCount++;
 
-            if (diffControl.cycleCount % cyclesForChange == 0)
+            if (diffControl.cycleCount % diffControl.cyclesForChange == 0)
             {
                 spawnBehaviour.Spawn(outsidePos, parkPos);
                 diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.03f);
