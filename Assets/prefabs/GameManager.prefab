@@ -60,7 +60,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290482851342230}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 914795a6bc9e39b48acdfa12b6d17705, type: 3}
   m_Name: 
@@ -78,8 +78,9 @@ MonoBehaviour:
   heightOffset: 0
   maxNumberOfTransmitters: 3
   zombiesInAction: 0
-  spawnOnFrameOffsetX: 5
-  spawnOnFrameOffsetY: 2
+  spawnOnFrameOffsetX: 7
+  spawnOnFrameOffsetY: 3
+  textures: []
 --- !u!114 &114965323959725240
 MonoBehaviour:
   m_ObjectHideFlags: 1
