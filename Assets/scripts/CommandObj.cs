@@ -19,7 +19,6 @@ public class CommandObj : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //transform.GetComponent<SpriteRenderer>().sprite = commandSprite;
         rb = transform.GetComponent<Rigidbody>();
         move = new Vector3(5, 0, 0);
         if(UnityEngine.Random.Range(0,4)==0)
@@ -31,7 +30,6 @@ public class CommandObj : MonoBehaviour
             int randomNum = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Symbol)).Length);
             symbol = (Symbol)randomNum;
         }
-       // MeshFilter meshFilter = GetComponent<MeshFilter>();
         if (symbol == Symbol.CROSS)
         {
             GameObject child = Instantiate(cross, transform);
@@ -101,19 +99,6 @@ public class CommandObj : MonoBehaviour
             _isInLine = value;
         }
     }
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.transform.tag=="command")
-    //    {
-    //        this.GetComponent<DOTweenPath>().DOPause();
-    //    }
-    //}
-    //void OnTriggerExit(Collider other)
-    //{
-    //    if (other.transform.tag == "command")
-    //    {
-    //        this.GetComponent<DOTweenPath>().DOPlay();
-    //    }
-    //}
+
 
 }

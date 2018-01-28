@@ -65,11 +65,6 @@ public class SpawnBehaviour : MonoBehaviour {
             }
             transmitterObj.GetComponent<Renderer>().material.color = color;
 
-
-            //transmitterObj.transform.LookAt(Vector3.zero);
-            //transmitterObj.transform.Rotate(Vector3.left,90f);
-            //transmitterObj.transform.Rotate(Vector3.up, 90f);
-
             zombiesInAction += 1;
             transmitterObj.transform.rotation= Quaternion.LookRotation(Vector3.up,transform.position);
             if(transmitterObj.transform.position.z>constants.PARK_HEIGHT)
@@ -77,9 +72,7 @@ public class SpawnBehaviour : MonoBehaviour {
                 transmitterObj.transform.Rotate(transmitterObj.transform.up, 90);
             }
             Destroy(transmitterObj.GetComponent<Material>());
-            //TODO give the transmitter the material with the right color for zombie. make sure color is not already used
             transmitterObj.GetComponent<CmdTransmitBehaviour> ().receiver = zombieObj;
-			//zombieObj.GetComponent<ZombieBehaviour> ().pointOfInterest
 		}
 	}
 
@@ -121,10 +114,6 @@ public class SpawnBehaviour : MonoBehaviour {
                 xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
                 yComponent = spawnZone.yMax + spawnOnFrameOffsetY;
                 break;
-            //case 2:
-            //  xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
-            //  yComponent = -spawnZone.yMax - spawnOnFrameOffsetY;
-            //  break;
 
         }
 

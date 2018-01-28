@@ -24,7 +24,6 @@ public class Sattelite : MonoBehaviour
             other.GetComponent<DOTweenPath>().DOPause();
             other.GetComponent<CommandObj>().isInLine = false;
             other.transform.localPosition = new Vector3(0, 0.5f, 0);
-            //transform.parent.GetComponent<CmdStorageBehaviour>().addCommand(new Command(other.GetComponent<CommandObj>().symbol, 10));
             transform.parent.GetComponent<CmdStorageBehaviour>().addCommand(other.GetComponent<CommandObj>());
             other.GetComponent<Rigidbody>().isKinematic = true;
             GetComponents<AudioSource>()[0].Play();

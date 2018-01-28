@@ -36,37 +36,7 @@ public class InfoGodControl : MonoBehaviour
     void Start()
     {
         storage = GetComponent<CmdStorageBehaviour>();
-        //sattelites = new List<GameObject>();
-        //createSattelites();
-        //StartCoroutine("speedUp");
     }
-
-    //public IEnumerator speedUp()
-    //{
-    //    DOTweenPath path = GetComponent<DOTweenPath>();
-    //    Tween t = GetComponent<DOTweenPath>().GetTween();
-    //    for (int i=0;i<20;i++)
-    //    {
-    //        // Change the timeScale to 2x
-    //        t.timeScale += 0.1f;
-    //        yield return new WaitForSeconds(1f);
-    //    }
-    //}
-    //// Update is called once per frame
-    //void Update () {
-
-    //}
-
-    //    void createSattelites()
-    //    {
-    //        for (int i = 0; i < satInLevel; i++)
-    //        {
-    //            //sattelitePrefab.GetComponent<CommandObj>().index = i;
-    //            GameObject sat = Instantiate(sattelitePrefab, transform);
-    //            sat.transform.localPosition = new Vector3(0,0, i);
-    //            sattelites.Add(sat);
-    //        }
-    //    }
 
     void SendInfoSequence()
     {
@@ -94,11 +64,8 @@ public class InfoGodControl : MonoBehaviour
             if (target != null && target.transform.tag == "command")
             {
                 _isMouseDrag = true;
-                //target.GetComponent<CommandObj>().setInLine(false);
                 target.GetComponent<DOTweenPath>().DOPause();
                 pickupPosition = target.transform.position;
-                //Debug.Log("target position :" + target.transform.position);
-                //Convert world position to screen position.
                 screenPosition = Camera.main.WorldToScreenPoint(target.transform.position);
                 offset = target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z));
             }

@@ -32,7 +32,6 @@ public class DifficultyControlBehaviour : MonoBehaviour {
 
     public IEnumerator speedUp()
     {
-        //DOTweenPath path = GetComponent<DOTweenPath>();
         Tween t = dOTweenPath.GetTween();
         for (int i = 0; i < 10; i++)
         {
