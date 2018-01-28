@@ -30,8 +30,23 @@ public class GameControlBehaviour : MonoBehaviour {
         points = 30;
 	}
 
-	//Destory the Tutorial Screen
-	public void StartGame(GameObject canvas) {
+    void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            toggleTime();
+        }
+    }
+    private void toggleTime()
+    {
+        if (Time.timeScale > 0)
+        { Time.timeScale = 0; }
+        else
+        { Time.timeScale = 1; }
+    }
+
+    //Destory the Tutorial Screen
+    public void StartGame(GameObject canvas) {
 		Destroy (canvas);
 	}
 
