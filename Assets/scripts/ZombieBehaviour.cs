@@ -4,11 +4,9 @@ using UnityEngine;
 
 public enum POI
 {
-    MALE,
-    FEMALE,
     BENCH,
     ICE,
-    FLOWERS
+    FOUNTAIN
 }
 
 public class ZombieBehaviour : MonoBehaviour {
@@ -176,8 +174,10 @@ public class ZombieBehaviour : MonoBehaviour {
 
     public IEnumerator deleteZombie()
     {
+        animator.SetTrigger("happy");
+        yield return new WaitForSeconds(4);
+        animator.SetTrigger("wave");
         Destroy(gameObject);
         Destroy(transmitter);
-        return null;
     }
 }

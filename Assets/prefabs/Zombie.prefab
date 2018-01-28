@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f352761f0a2157241ba706b6411769ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepLength: 1
+  stepLength: 3
   goalPOI: 3
   healthFactor: 10
   stepCountFactor: 1

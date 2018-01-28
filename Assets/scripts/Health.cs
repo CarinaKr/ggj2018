@@ -12,10 +12,12 @@ public class Health : MonoBehaviour {
     public Slider healthSlider;
 
     private int maxHealth;
+    private Animator animator;
 
     void Start()
     {
         maxHealth = health;
+        animator = GetComponent<Animator>();
     }
 
 	void OnCollisionEnter(Collision col){
@@ -45,7 +47,15 @@ public class Health : MonoBehaviour {
         zombieBehaviour.transmitter.GetComponent<Renderer>().material.color = Color.gray;
         zombieBehaviour.enabled = false;
         GameControlBehaviour.instance.points -= 10;
-        if(GameControlBehaviour.instance.points<=0)
+        StartCoroutine("deacZombie");
+    }
+
+    public IEnumerator deacZombie()
+    {
+        animator.SetTrigger("dissappointed");
+        yield return new WaitForSeconds(4);
+        animator.SetBool("crying", true);
+        if (GameControlBehaviour.instance.points <= 0)
         {
             GameControlBehaviour.instance.GameOver();
         }

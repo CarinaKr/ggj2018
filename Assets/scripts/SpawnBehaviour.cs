@@ -8,6 +8,7 @@ public class SpawnBehaviour : MonoBehaviour {
 	public GameObject transmitterPrefab;
 	public GameObject zombiePrefab;
     public Rect spawnZone;
+    public Sprite[] pointsOfInterestImage;
 
     public float heightOffset;
 	public int maxNumberOfTransmitters;
@@ -49,6 +50,7 @@ public class SpawnBehaviour : MonoBehaviour {
             Color color = new Color(Random.value, Random.value, Random.value, Random.value);
             zombieObj.GetComponent<ZombieBehaviour>().goalPOI = (POI)Random.Range(0, 5);
             zombieObj.GetComponent<Health>().healthSlider = transmitterObj.GetComponentInChildren<Slider>();
+            transmitterObj.GetComponentInChildren<Image>().sprite = pointsOfInterestImage[(int)zombieBehaviour.goalPOI];
 
             if (zombieObj.transform.GetChild(0).GetComponent<Renderer>() != null)
             {   
