@@ -11,6 +11,7 @@ public class InfoGodControl : MonoBehaviour
     public int satInLevel;
     public GameObject[] ObjInLine;
     public GameObject cmdSpawn;
+    public int cyclesForChange;
 
     private List<GameObject> sattelites;
     private CmdStorageBehaviour storage;
@@ -136,17 +137,21 @@ public class InfoGodControl : MonoBehaviour
 
             diffControl.cycleCount++;
 
-            spawnBehaviour.Spawn(outsidePos, parkPos);
-            diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.03f);
+            if (diffControl.cycleCount % cyclesForChange == 0)
+            {
+                spawnBehaviour.Spawn(outsidePos, parkPos);
+                diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.03f);
+                if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount)
+                {
+                    diffControl.addSatelite();
+                }
+                else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
+                {
+                    diffControl.destroyLastSatelite();
+                }
+            }
 
-            if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount)
-            {
-                diffControl.addSatelite();
-            }
-            else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
-            {
-                diffControl.destroyLastSatelite();
-            }
+           
         }
     }
 
