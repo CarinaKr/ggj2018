@@ -24,6 +24,8 @@ public class GameControlBehaviour : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
         StartCoroutine("createCommands",6);
+
+        points = 30;
 	}
 
 	//Destory the Tutorial Screen
@@ -53,7 +55,7 @@ public class GameControlBehaviour : MonoBehaviour {
         set
         {
             _points = value;
-            pointText.text = "Points: " + _points;
+            pointText.text = "$: " + _points;
         }
     }
 
@@ -64,5 +66,10 @@ public class GameControlBehaviour : MonoBehaviour {
             yield return new WaitForSeconds(1);
             Instantiate(commandPrefab, cmdSpawn.transform.position, cmdSpawn.transform.rotation, commandParent.transform);
         }
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(2);
     }
 }

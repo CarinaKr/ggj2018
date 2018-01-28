@@ -44,7 +44,11 @@ public class Health : MonoBehaviour {
         ZombieBehaviour zombieBehaviour = GetComponent<ZombieBehaviour>();
         zombieBehaviour.transmitter.GetComponent<Renderer>().material.color = Color.gray;
         zombieBehaviour.enabled = false;
-
+        GameControlBehaviour.instance.points -= 10;
+        if(GameControlBehaviour.instance.points<=0)
+        {
+            GameControlBehaviour.instance.GameOver();
+        }
     }
 
     public void NotMove()
