@@ -7,17 +7,10 @@ public class Sattelite : MonoBehaviour
 {
 
     private bool _isUsed;
-
-<<<<<<< HEAD
-    // Use this for initialization
-    void Start()
-    {
-
-=======
+    
     // When it comes to sound for the Sattelite 0 is the Load sound, 1 is the unLoad sound
 	// Use this for initialization
 	void Start () {
->>>>>>> 6c0bb91907fe7f96952d6ab0bf9a343a0d4b36dc
     }
 
     void OnTriggerEnter(Collider other)
