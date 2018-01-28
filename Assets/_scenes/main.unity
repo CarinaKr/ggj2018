@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4475,7 +4475,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400020, guid: 800a78065e188754b8f9fc54f6bb9b02, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423100678}
-  m_LocalRotation: {x: 0.18301272, y: 0.68301284, z: -0.6830126, w: -0.18301255}
+  m_LocalRotation: {x: 0.18301274, y: 0.6830129, z: -0.68301266, w: -0.18301256}
   m_LocalPosition: {x: -1.1421951, y: 0.60131824, z: 0.6098226}
   m_LocalScale: {x: 6.716425, y: 6.716425, z: 7.073437}
   m_Children: []
@@ -5374,6 +5374,35 @@ Prefab:
       propertyPath: maxCommandAmount
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114564773234720356, guid: ac849dd79f1ae1a4282a5724e8f5af41,
+        type: 2}
+      propertyPath: cyclesForChange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
+        type: 2}
+      propertyPath: pointsOfInterestImage.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ff4667487992c64ab54a3b290c1df3f,
+        type: 3}
+    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
+        type: 2}
+      propertyPath: pointsOfInterestImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ecfd0a89e4f1504291db6a6330dad28,
+        type: 3}
+    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
+        type: 2}
+      propertyPath: pointsOfInterestImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 675cf73cb51bbea429c9307a9306b354,
+        type: 3}
+    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
+        type: 2}
+      propertyPath: pointsOfInterestImage.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3fbedbcd26e81084c9eb1d03bdcaed35,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac849dd79f1ae1a4282a5724e8f5af41, type: 2}
   m_IsPrefabParent: 0
