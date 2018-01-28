@@ -10,7 +10,7 @@ public class CmdReceiveBehaviour : MonoBehaviour {
             CmdStorageBehaviour storage = other.gameObject.GetComponent<CmdStorageBehaviour>();
             List<CommandObj> com = storage.Commands;
             GetComponent<CmdTransmitBehaviour>().SendCmd(com);
-            other.GetComponents<AudioSource>()[1].Play();
+            other.GetComponentsInChildren<AudioSource>()[1].Play();
         }
        
 	}

@@ -7,12 +7,12 @@ public class InfoGodControl : MonoBehaviour
 {
 
     public static InfoGodControl instance;
-    //public GameObject sattelitePrefab;
-    //public int satInLevel;
+    public GameObject sattelitePrefab;
+    public int satInLevel;
     public GameObject[] ObjInLine;
     public GameObject cmdSpawn;
 
-    //private List<GameObject> sattelites;
+    private List<GameObject> sattelites;
     private CmdStorageBehaviour storage;
     private GameObject target;
     private bool _isMouseDrag;
@@ -160,26 +160,26 @@ public class InfoGodControl : MonoBehaviour
         if (col.transform.tag == "commandInLine")
         {
             DifficultyControlBehaviour diffControl = GameControlBehaviour.instance.GetComponent<DifficultyControlBehaviour>();
-            //SpawnBehaviour spawnBehaviour = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>();
-            //GameObject infoTrain = GameControlBehaviour.instance.infoTrain;
+            SpawnBehaviour spawnBehaviour = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>();
+            GameObject infoTrain = GameControlBehaviour.instance.infoTrain;
             
-            //Debug.Log("Triggered Reching Base Event");
-            //Vector3 parkPos = spawnBehaviour.getPositionInPark();
-            //Vector3 outsidePos = spawnBehaviour.getPositionOnFrame();
+            Debug.Log("Triggered Reching Base Event");
+            Vector3 parkPos = spawnBehaviour.getPositionInPark();
+            Vector3 outsidePos = spawnBehaviour.getPositionOnFrame();
 
             diffControl.cycleCount++;
 
-            //spawnBehaviour.Spawn(outsidePos, parkPos);
+            spawnBehaviour.Spawn(outsidePos, parkPos);
             diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.01f);
 
-            //if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount)
-            //{
-            //    diffControl.addSatelite();
-            //}
-            //else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
-            //{
-            //    diffControl.destroyLastSatelite();
-            //}
+            if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount)
+            {
+                diffControl.addSatelite();
+            }
+            else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
+            {
+                diffControl.destroyLastSatelite();
+            }
         }
     }
 
