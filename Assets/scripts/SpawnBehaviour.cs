@@ -50,11 +50,11 @@ public class SpawnBehaviour : MonoBehaviour {
 
 
             ZombieBehaviour zombieBehaviour = zombieObj.GetComponent<ZombieBehaviour>();
-            zombieBehaviour.goalPOI = (POI)Random.Range(0, 5);
+            zombieBehaviour.goalPOI = (POI)Random.Range(0, 3);
             zombieBehaviour.transmitter = this.gameObject;
 
             Color color = new Color(Random.value, Random.value, Random.value, Random.value);
-            zombieObj.GetComponent<ZombieBehaviour>().goalPOI = (POI)Random.Range(0, 5);
+            zombieObj.GetComponent<ZombieBehaviour>().goalPOI = (POI)Random.Range(0, 3);
             zombieObj.GetComponent<Health>().healthSlider = transmitterObj.GetComponentInChildren<Slider>();
             
             transmitterObj.GetComponentInChildren<Image>().sprite = pointsOfInterestImage[(int)zombieBehaviour.goalPOI];
