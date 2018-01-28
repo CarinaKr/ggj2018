@@ -11,7 +11,6 @@ public class InfoGodControl : MonoBehaviour
     public int satInLevel;
     public GameObject[] ObjInLine;
     public GameObject cmdSpawn;
-    public int cyclesForChange;
 
     private List<GameObject> sattelites;
     private CmdStorageBehaviour storage;
@@ -78,17 +77,19 @@ public class InfoGodControl : MonoBehaviour
             _isMouseDrag = false;
             //if (droppedInLine())
             //{
-                //target.GetComponent<CommandObj>().setInLine(true);
-                //target.transform.parent = ObjInLine.transform.parent;
-                target.transform.position = cmdSpawn.transform.position;
-                path.DORestart(true);
+            //target.GetComponent<CommandObj>().setInLine(true);
+            //target.transform.parent = ObjInLine.transform.parent;
+            //target.transform.position = cmdSpawn.transform.position;
+            //path.DORestart(true);
+            Destroy(target.gameObject);
+            GameControlBehaviour.instance.StartCoroutine("createCommands", 1);
             //}
             //else
             //{
             //    target.transform.position = pickupPosition;
             //}
 
-            path.DOPlay();
+            //path.DOPlay();
         }
 
         if (_isMouseDrag)
@@ -137,7 +138,7 @@ public class InfoGodControl : MonoBehaviour
 
             diffControl.cycleCount++;
 
-            if (diffControl.cycleCount % cyclesForChange == 0)
+            if (diffControl.cycleCount % diffControl.cyclesForChange == 0)
             {
                 spawnBehaviour.Spawn(outsidePos, parkPos);
                 diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.03f);
