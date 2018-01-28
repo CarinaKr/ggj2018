@@ -20,7 +20,7 @@ public class DifficultyControlBehaviour : MonoBehaviour {
     {
         Transform infoTrainTrans = GameControlBehaviour.instance.infoTrain.transform;
         GameObject satelite = Instantiate(GameControlBehaviour.instance.satelitePrefab,infoTrainTrans);
-        satelite.transform.localPosition = new Vector3(0f, 0f, -infoTrainTrans.childCount-1 );
+        satelite.transform.localPosition = new Vector3(0f, 0f, -infoTrainTrans.childCount*2 );
 
     }
 
@@ -32,7 +32,6 @@ public class DifficultyControlBehaviour : MonoBehaviour {
 
     public IEnumerator speedUp()
     {
-        //DOTweenPath path = GetComponent<DOTweenPath>();
         Tween t = dOTweenPath.GetTween();
         for (int i = 0; i < 10; i++)
         {

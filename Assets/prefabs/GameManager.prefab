@@ -75,8 +75,13 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
+  pointsOfInterestImage:
+  - {fileID: 21300000, guid: 6f295a5401e4e4c43ac78acbfcf8ce48, type: 3}
+  - {fileID: 21300000, guid: 1e76b6ae5cfbaeb4cb60eb4b9672f1e6, type: 3}
+  - {fileID: 21300000, guid: caefb843c3d9c1d4f88653ae4b857804, type: 3}
+  zombiesOnStart: 4
   heightOffset: 0
-  maxNumberOfTransmitters: 3
+  maxNumberOfTransmitters: 8
   zombiesInAction: 0
   spawnOnFrameOffsetX: 7
   spawnOnFrameOffsetY: 3
@@ -99,5 +104,5 @@ MonoBehaviour:
   satelitePrefab: {fileID: 1939138360168872, guid: 430c0d0302b4d2149869c6b2b67087ca,
     type: 2}
   cmdSpawn: {fileID: 1357457605487422, guid: d3a430d725713ef48b3be6ff3ab305a6, type: 2}
-  maxCommandAmount: 3
+  maxCommandAmount: 8
   infoTrain: {fileID: 0}

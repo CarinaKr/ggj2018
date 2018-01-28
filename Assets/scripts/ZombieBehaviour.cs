@@ -4,11 +4,9 @@ using UnityEngine;
 
 public enum POI
 {
-    MALE,
-    FEMALE,
     BENCH,
     ICE,
-    FLOWERS
+    FOUNTAIN
 }
 
 public class ZombieBehaviour : MonoBehaviour {
@@ -18,12 +16,13 @@ public class ZombieBehaviour : MonoBehaviour {
     public float healthFactor, stepCountFactor;
     public Health health;
     public GameObject transmitter;
+    public float step = 2f; //0.01f
 
     private int optimalStepCount=1;
     private int stepsTaken;
     private Animator animator;
     private Rigidbody rb;
-    private float step = 2f; //0.01f
+    
     private bool isInCoroutine;
     private Vector3 goal;
     
@@ -176,8 +175,10 @@ public class ZombieBehaviour : MonoBehaviour {
 
     public IEnumerator deleteZombie()
     {
+        animator.SetTrigger("happy");
+        yield return new WaitForSeconds(4);
+        animator.SetTrigger("wave");
         Destroy(gameObject);
         Destroy(transmitter);
-        return null;
     }
 }

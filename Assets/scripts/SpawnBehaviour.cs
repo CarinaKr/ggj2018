@@ -8,7 +8,9 @@ public class SpawnBehaviour : MonoBehaviour {
 	public GameObject transmitterPrefab;
 	public GameObject zombiePrefab;
     public Rect spawnZone;
+    public Sprite[] pointsOfInterestImage;
 
+    public int zombiesOnStart;
     public float heightOffset;
 	public int maxNumberOfTransmitters;
 	public int zombiesInAction = 0;
@@ -19,8 +21,13 @@ public class SpawnBehaviour : MonoBehaviour {
 	public void Start(){
         zombiesInAction = GameObject.FindGameObjectsWithTag("transmitter").Length; ;
         spawnZone = new Rect(0,0, constants.PARK_WIDTH,constants.PARK_HEIGHT);
-
-	}
+        while (zombiesOnStart > 0)
+        {
+            GameControlBehaviour.instance.GetComponent<DifficultyControlBehaviour>().addSatelite();
+            Spawn(getPositionOnFrame(), getPositionInPark());
+            zombiesOnStart -= 1;
+        }
+    }
 
 	public void Spawn(Vector3 transmitterSpawnPos, Vector3 zombieSpawnPos){
 		if (zombiesInAction < maxNumberOfTransmitters) {
@@ -43,23 +50,20 @@ public class SpawnBehaviour : MonoBehaviour {
 
 
             ZombieBehaviour zombieBehaviour = zombieObj.GetComponent<ZombieBehaviour>();
-            zombieBehaviour.goalPOI = (POI)Random.Range(0, 5);
+            zombieBehaviour.goalPOI = (POI)Random.Range(0, 3);
             zombieBehaviour.transmitter = this.gameObject;
 
             Color color = new Color(Random.value, Random.value, Random.value, Random.value);
-            zombieObj.GetComponent<ZombieBehaviour>().goalPOI = (POI)Random.Range(0, 5);
+            zombieObj.GetComponent<ZombieBehaviour>().goalPOI = (POI)Random.Range(0, 3);
             zombieObj.GetComponent<Health>().healthSlider = transmitterObj.GetComponentInChildren<Slider>();
+            
+            transmitterObj.GetComponentInChildren<Image>().sprite = pointsOfInterestImage[(int)zombieBehaviour.goalPOI];
 
             if (zombieObj.transform.GetChild(0).GetComponent<Renderer>() != null)
             {   
                 zombieObj.transform.GetChild(0).GetComponent<Renderer>().material.color = color;
             }
             transmitterObj.GetComponent<Renderer>().material.color = color;
-
-
-            //transmitterObj.transform.LookAt(Vector3.zero);
-            //transmitterObj.transform.Rotate(Vector3.left,90f);
-            //transmitterObj.transform.Rotate(Vector3.up, 90f);
 
             zombiesInAction += 1;
             transmitterObj.transform.rotation= Quaternion.LookRotation(Vector3.up,transform.position);
@@ -68,9 +72,7 @@ public class SpawnBehaviour : MonoBehaviour {
                 transmitterObj.transform.Rotate(transmitterObj.transform.up, 90);
             }
             Destroy(transmitterObj.GetComponent<Material>());
-            //TODO give the transmitter the material with the right color for zombie. make sure color is not already used
             transmitterObj.GetComponent<CmdTransmitBehaviour> ().receiver = zombieObj;
-			//zombieObj.GetComponent<ZombieBehaviour> ().pointOfInterest
 		}
 	}
 
@@ -112,10 +114,6 @@ public class SpawnBehaviour : MonoBehaviour {
                 xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
                 yComponent = spawnZone.yMax + spawnOnFrameOffsetY;
                 break;
-            //case 2:
-            //  xComponent = Random.Range(-spawnZone.xMax, spawnZone.xMax);
-            //  yComponent = -spawnZone.yMax - spawnOnFrameOffsetY;
-            //  break;
 
         }
 
@@ -144,7 +142,7 @@ public class SpawnBehaviour : MonoBehaviour {
 
         foreach (Vector3 position in positions)
         {
-            if ((positionToCheck - position).magnitude < 2)
+            if ((positionToCheck - position).magnitude < 3)
             {
                 isPositionFree = false;
             }
