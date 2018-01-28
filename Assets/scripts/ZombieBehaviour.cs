@@ -115,7 +115,17 @@ public class ZombieBehaviour : MonoBehaviour {
         {
             if (!animator.GetBool("move"))
             { animator.SetBool("move", true); }
+            transform.LookAt(goal);
             transform.position=Vector3.MoveTowards(transform.position, goal, step*Time.deltaTime);
+            if(transform.position.x>constants.PARK_WIDTH)
+            { transform.position =new Vector3(constants.PARK_WIDTH,transform.position.y,transform.position.z) ; }
+            if(transform.position.x<constants.PARK_WIDTH*(-1))
+            { transform.position = new Vector3((-1)*constants.PARK_WIDTH, transform.position.y, transform.position.z); }
+            if (transform.position.y > constants.PARK_HEIGHT)
+            { transform.position = new Vector3(constants.PARK_HEIGHT, transform.position.y, transform.position.z); }
+            if (transform.position.y < constants.PARK_HEIGHT * (-1))
+            { transform.position = new Vector3((-1) * constants.PARK_HEIGHT, transform.position.y, transform.position.z); }
+
         }
         else
         {
