@@ -10,6 +10,7 @@ TagManager:
   - train
   - POI
   - commandInLine
+  - zombie
   layers:
   - Default
   - TransparentFX

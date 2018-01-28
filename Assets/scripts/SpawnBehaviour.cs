@@ -57,6 +57,16 @@ public class SpawnBehaviour : MonoBehaviour {
             heightOffset,
             Random.Range(-spawnZone.yMax, spawnZone.yMax)
             );
+
+        GameObject[] gObjs = GameObject.FindGameObjectsWithTag("zombie");
+        List<Vector3> vectors = new List<Vector3>();
+        foreach (GameObject transmitter in gObjs)
+        {
+            vectors.Add(transmitter.transform.position);
+        }
+
+        if (!isPositionFree(spawnVector, vectors.ToArray())) spawnVector = getPositionOnFrame();
+
         return spawnVector;
     }
 
@@ -92,7 +102,31 @@ public class SpawnBehaviour : MonoBehaviour {
             yComponent
             );
 
+        GameObject[] gObjs = GameObject.FindGameObjectsWithTag("transmitter");
+        List<Vector3> vectors = new List<Vector3>();
+        foreach(GameObject transmitter in gObjs)
+        {
+            vectors.Add(transmitter.transform.position);
+        }
+
+        if (!isPositionFree(spawnVector, vectors.ToArray())) spawnVector = getPositionOnFrame();
+        
         Debug.Log("On Frame Vector: " + spawnVector);
         return spawnVector;
+    }
+
+    bool isPositionFree(Vector3 positionToCheck, Vector3[] positions)
+    {
+        bool isPositionFree = true;
+
+        foreach (Vector3 position in positions)
+        {
+            if ((positionToCheck - position).magnitude < 2)
+            {
+                isPositionFree = false;
+            }
+        }
+
+        return isPositionFree;
     }
 }
