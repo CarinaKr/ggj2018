@@ -17,7 +17,7 @@ public class Health : MonoBehaviour {
     void Start()
     {
         maxHealth = health;
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
 	void OnCollisionEnter(Collision col){

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4475,7 +4475,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400020, guid: 800a78065e188754b8f9fc54f6bb9b02, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423100678}
-  m_LocalRotation: {x: 0.18301272, y: 0.68301284, z: -0.6830126, w: -0.18301255}
+  m_LocalRotation: {x: 0.18301274, y: 0.6830129, z: -0.68301266, w: -0.18301256}
   m_LocalPosition: {x: -1.1421951, y: 0.60131824, z: 0.6098226}
   m_LocalScale: {x: 6.716425, y: 6.716425, z: 7.073437}
   m_Children: []
@@ -5344,36 +5344,6 @@ Prefab:
       propertyPath: infoTrain
       value: 
       objectReference: {fileID: 998374854}
-    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
-        type: 2}
-      propertyPath: spawnOnFrameOffsetX
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
-        type: 2}
-      propertyPath: spawnOnFrameOffsetY
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
-        type: 2}
-      propertyPath: zombiesOnStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907512969087028, guid: ac849dd79f1ae1a4282a5724e8f5af41,
-        type: 2}
-      propertyPath: maxNumberOfTransmitters
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114965323959725240, guid: ac849dd79f1ae1a4282a5724e8f5af41,
-        type: 2}
-      propertyPath: maxCommandAmount
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac849dd79f1ae1a4282a5724e8f5af41, type: 2}
   m_IsPrefabParent: 0
