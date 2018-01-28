@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 300021e100547f9468230cb98422db56
+timeCreated: 1517089393
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: foot_L_CTRL
+    100002: foot_R_CTRL
+    100004: GEO_body
+    100006: GEO_eyes
+    100008: GEO_feet
+    100010: GEO_hands
+    100012: GEO_head
+    100014: JNT_calf_l
+    100016: JNT_calf_r
+    100018: JNT_chest
+    100020: JNT_fingers_l
+    100022: JNT_fingers_r
+    100024: JNT_foot_l
+    100026: JNT_foot_r
+    100028: JNT_hand_l
+    100030: JNT_hand_l_CTRL
+    100032: JNT_hand_r
+    100034: JNT_hand_r_CTRL
+    100036: JNT_head
+    100038: JNT_head_CTRL
+    100040: JNT_head_end
+    100042: JNT_hips
+    100044: JNT_lowerArm_l
+    100046: JNT_root
+    100048: JNT_root_CTRL
+    100050: JNT_rowerArm_r
+    100052: JNT_thigh_l
+    100054: JNT_thigh_r
+    100056: JNT_thumb_l
+    100058: JNT_thumb_r
+    100060: JNT_toeBase_l
+    100062: JNT_toeBase_r
+    100064: JNT_upperArm_l
+    100066: JNT_upperArm_r
+    100068: //RootNode
+    400000: foot_L_CTRL
+    400002: foot_R_CTRL
+    400004: GEO_body
+    400006: GEO_eyes
+    400008: GEO_feet
+    400010: GEO_hands
+    400012: GEO_head
+    400014: JNT_calf_l
+    400016: JNT_calf_r
+    400018: JNT_chest
+    400020: JNT_fingers_l
+    400022: JNT_fingers_r
+    400024: JNT_foot_l
+    400026: JNT_foot_r
+    400028: JNT_hand_l
+    400030: JNT_hand_l_CTRL
+    400032: JNT_hand_r
+    400034: JNT_hand_r_CTRL
+    400036: JNT_head
+    400038: JNT_head_CTRL
+    400040: JNT_head_end
+    400042: JNT_hips
+    400044: JNT_lowerArm_l
+    400046: JNT_root
+    400048: JNT_root_CTRL
+    400050: JNT_rowerArm_r
+    400052: JNT_thigh_l
+    400054: JNT_thigh_r
+    400056: JNT_thumb_l
+    400058: JNT_thumb_r
+    400060: JNT_toeBase_l
+    400062: JNT_toeBase_r
+    400064: JNT_upperArm_l
+    400066: JNT_upperArm_r
+    400068: //RootNode
+    2100000: head_mat
+    2100002: body_mat
+    2100004: hands_mat
+    2100006: shoes_mat
+    2100008: eyes_mat
+    4300000: GEO_head
+    4300002: GEO_body
+    4300004: GEO_hands
+    4300006: GEO_feet
+    4300008: GEO_eyes
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: GEO_body
+    13700002: GEO_eyes
+    13700004: GEO_feet
+    13700006: GEO_hands
+    13700008: GEO_head
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
