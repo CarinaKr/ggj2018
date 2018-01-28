@@ -163,9 +163,16 @@ public class InfoGodControl : MonoBehaviour
             //SpawnBehaviour spawnBehaviour = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>();
             //GameObject infoTrain = GameControlBehaviour.instance.infoTrain;
 
+<<<<<<< HEAD
             //Debug.Log("Triggered Reching Base Event");
             //Vector3 parkPos = spawnBehaviour.getPositionInPark();
             //Vector3 outsidePos = spawnBehaviour.getPositionOnFrame();
+=======
+            diffControl.cycleCount++;
+            Debug.Log("Triggered Reching Base Event");
+            Vector3 parkPos = spawnBehaviour.getPositionInPark();
+            Vector3 outsidePos = spawnBehaviour.getPositionOnFrame();
+>>>>>>> 6c0bb91907fe7f96952d6ab0bf9a343a0d4b36dc
 
             //spawnBehaviour.Spawn(outsidePos, parkPos);
             diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.01f);
