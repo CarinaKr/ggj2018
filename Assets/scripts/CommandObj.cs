@@ -22,7 +22,7 @@ public class CommandObj : MonoBehaviour
         //transform.GetComponent<SpriteRenderer>().sprite = commandSprite;
         rb = transform.GetComponent<Rigidbody>();
         move = new Vector3(5, 0, 0);
-        if(UnityEngine.Random.Range(0,3)==0)
+        if(UnityEngine.Random.Range(0,4)==0)
         {
             symbol = Symbol.CROSS;
         }

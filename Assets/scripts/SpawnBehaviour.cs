@@ -39,7 +39,9 @@ public class SpawnBehaviour : MonoBehaviour {
                 Quaternion.identity,
 				zombies.transform) as GameObject;
 
-            zombieObj.GetComponent<ZombieBehaviour>().goalPOI = (POI)Random.Range(0, 5);
+            ZombieBehaviour zombieBehaviour = zombieObj.GetComponent<ZombieBehaviour>();
+            zombieBehaviour.goalPOI = (POI)Random.Range(0, 5);
+            zombieBehaviour.transmitter = this.gameObject;
 
             //transmitterObj.transform.LookAt(Vector3.zero);
             //transmitterObj.transform.Rotate(Vector3.left,90f);

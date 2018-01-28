@@ -13,17 +13,27 @@ public enum POI
 
 public class ZombieBehaviour : MonoBehaviour {
     
-    public float stepLength = 1f;
+    public float stepLength = 5f;
     public POI goalPOI;
     public float healthFactor, stepCountFactor;
     public Health health;
+    public GameObject transmitter;
 
     private int optimalStepCount=1;
     private int stepsTaken;
+    private Animator animator;
+    private Rigidbody rb;
+    private float step = 2f; //0.01f
+    private bool isInCoroutine;
+    private Vector3 goal;
     
     void Start()
     {
         health = GetComponent<Health>();
+        animator = GetComponentInChildren<Animator>();
+        //animator.StartPlayback();
+        rb = GetComponent<Rigidbody>();
+        goal = transform.position;
     }
 
     public void Move(Symbol symbol)
@@ -31,45 +41,50 @@ public class ZombieBehaviour : MonoBehaviour {
         Debug.Log("Moving " + name);
         switch (symbol)
         {
-            case Symbol.MOVEDOWN:
-                //GetComponent<Rigidbody> ().AddForce (Vector3.back * moveForce);
+            case Symbol.MOVEDOWN: 
                 if (transform.position.y > -constants.PARK_HEIGHT + stepLength)
                 {
-                    transform.Translate(Vector3.back * stepLength);
+                    //rb.AddForce (Vector3.back * moveForce);
+                    goal += Vector3.back * stepLength;
+                    //StartCoroutine("MoveTo", Vector3.back);
                     stepsTaken++;
                     health.Move();
                 }
                 else
                 {
-                    health.NotMove();
+                    hitObstacle();
                 }
                 break;
 
             case Symbol.MOVEUP:
-                //GetComponent<Rigidbody> ().AddForce (Vector3.forward * moveForce);
+                
                 if(transform.position.y<constants.PARK_HEIGHT-stepLength)
                 {
-                    transform.Translate(Vector3.forward * stepLength);
+                    //rb.AddForce (Vector3.forward * moveForce);
+                    //StartCoroutine("MoveTo", Vector3.forward);
+                    goal += Vector3.forward * stepLength;
                     stepsTaken++;
                     health.Move();
                 }
                 else
                 {
-                    health.NotMove();
+                    hitObstacle();
                 }
                 break;
 
             case Symbol.MOVELEFT:
-                //GetComponent<Rigidbody> ().AddForce (Vector3.left * moveForce);
+                
                 if(transform.position.x>-constants.PARK_WIDTH+stepLength)
                 {
-                    transform.Translate(Vector3.left * stepLength);
+                    //transform.Translate(Vector3.left * stepLength);
+                    //StartCoroutine("MoveTo", Vector3.left);
+                    goal += Vector3.left * stepLength;
                     stepsTaken++;
                     health.Move();
                 }
                 else
                 {
-                    health.NotMove();
+                    hitObstacle();
                 }
                 break;
 
@@ -78,13 +93,15 @@ public class ZombieBehaviour : MonoBehaviour {
                 //GetComponent<Rigidbody> ().AddForce (Vector3.right * moveForce);
                 if(transform.position.x<constants.PARK_WIDTH-stepLength)
                 {
-                    transform.Translate(Vector3.right * stepLength);
+                    //StartCoroutine("MoveTo", Vector3.right);
+                    //transform.Translate(Vector3.right * stepLength);
+                    goal += Vector3.right * stepLength;
                     stepsTaken++;
                     health.Move();
                 }
                 else
                 {
-                    health.NotMove();
+                    hitObstacle();
                 }
                 break;
             case Symbol.CROSS:
@@ -92,6 +109,37 @@ public class ZombieBehaviour : MonoBehaviour {
                 break;
         }
     }
+
+    void Update()
+    {
+        if(Vector3.Distance(transform.position,goal)>0.1)
+        {
+            if (!animator.GetBool("move"))
+            { animator.SetBool("move", true); }
+            transform.position=Vector3.MoveTowards(transform.position, goal, step*Time.deltaTime);
+        }
+        else
+        {
+            animator.SetBool("move", false);
+        }
+    }
+
+    public IEnumerator MoveTo(Vector3 direction)
+    {
+        if(isInCoroutine)
+        { yield break; }
+        isInCoroutine = true;
+        Vector3 goal = transform.position + (direction * stepLength);
+        animator.SetBool("move", true);
+        while (Vector3.Distance(transform.position, goal) >0.1)
+        {
+            transform.Translate(direction * step);
+            yield return new WaitForSeconds(0.01f);
+        }
+        animator.SetBool("move", false);
+        isInCoroutine = false;
+    }
+    
 
     void OnTriggerEnter(Collider other)
     {
@@ -109,19 +157,27 @@ public class ZombieBehaviour : MonoBehaviour {
         if(other.transform.tag=="zombie")
         {
             health.NotMove();
+            animator.SetTrigger("hit_out");
         }
     }
 
     private void goalReached()
     {
-        float points = health.health * healthFactor + (stepsTaken/optimalStepCount) * stepCountFactor;
+        float points = health.health * healthFactor - (stepsTaken) * stepCountFactor;
         GameControlBehaviour.instance.points = (int)points;
         StartCoroutine("deleteZombie");
+    }
+
+    private void hitObstacle()
+    {
+        health.NotMove();
+        animator.SetTrigger("hit_in");
     }
 
     public IEnumerator deleteZombie()
     {
         Destroy(gameObject);
+        Destroy(transmitter);
         return null;
     }
 }
