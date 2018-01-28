@@ -159,6 +159,7 @@ public class InfoGodControl : MonoBehaviour {
             SpawnBehaviour spawnBehaviour = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>();
             GameObject infoTrain = GameControlBehaviour.instance.infoTrain;
 
+            diffControl.cycleCount++;
             Debug.Log("Triggered Reching Base Event");
             Vector3 parkPos = spawnBehaviour.getPositionInPark();
             Vector3 outsidePos = spawnBehaviour.getPositionOnFrame();
