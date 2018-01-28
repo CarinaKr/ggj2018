@@ -8,6 +8,7 @@ public class DifficultyControlBehaviour : MonoBehaviour {
     private DOTweenPath dOTweenPath;
     private float rate;
     public float cycleCount;
+    public int cyclesForChange;
 
     public void changeSpeedBy(DOTweenPath dOTweenPath, float rate){
         this.dOTweenPath = dOTweenPath;
