@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 33270504040784058}
   - component: {fileID: 65788579062903040}
   - component: {fileID: 23259145326654124}
-  - component: {fileID: 114517475546850490}
   - component: {fileID: 54634274923104820}
   m_Layer: 0
   m_Name: Sattelite
@@ -99,16 +98,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114517475546850490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1130763108592892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcb1b0210cbf63d4db8f6ee45b4c8c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 2.836756, y: 1, z: 1}
+  m_Center: {x: -0.91838133, y: 0, z: -5.3312788e-11}

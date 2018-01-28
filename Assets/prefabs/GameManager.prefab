@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4214842305936478}
   - component: {fileID: 114907512969087028}
   - component: {fileID: 114965323959725240}
+  - component: {fileID: 114564773234720356}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -41,31 +42,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114564773234720356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290482851342230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7629dacd3f7954eb4aae6126553465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycleCount: 0
 --- !u!114 &114907512969087028
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290482851342230}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c5fbc4e1543954f9a91bb0c745a97c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointText: {fileID: 0}
-  commandPrefab: {fileID: 1716771389785402, guid: 6956f08b6f072b7479c5b1017181122e,
-    type: 2}
-  commandParent: {fileID: 0}
-  infoTrain: {fileID: 0}
---- !u!114 &114965323959725240
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1290482851342230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058c5f95fc4ee874981c9b6e74dcdb6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 914795a6bc9e39b48acdfa12b6d17705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   transmitterPrefab: {fileID: 1083704174577736, guid: ddbe260c8c5e7144389644eadb7917c0,
@@ -78,9 +75,28 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  startingTransmitters: 10
-  heightOffset: 0.5
-  maxNumberOfTransmitters: 0
+  heightOffset: 0
+  maxNumberOfTransmitters: 3
   zombiesInAction: 0
-  spawnOnFrameOffsetX: 10
+  spawnOnFrameOffsetX: 5
   spawnOnFrameOffsetY: 2
+--- !u!114 &114965323959725240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290482851342230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47bb9c0dc9c0ff41800892c8f6340cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointText: {fileID: 0}
+  commandPrefab: {fileID: 1716771389785402, guid: 6956f08b6f072b7479c5b1017181122e,
+    type: 2}
+  commandParent: {fileID: 0}
+  satelitePrefab: {fileID: 1939138360168872, guid: 430c0d0302b4d2149869c6b2b67087ca,
+    type: 2}
+  cmdSpawn: {fileID: 1357457605487422, guid: d3a430d725713ef48b3be6ff3ab305a6, type: 2}
+  maxCommandAmount: 3
+  infoTrain: {fileID: 0}

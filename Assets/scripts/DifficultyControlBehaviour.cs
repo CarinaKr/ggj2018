@@ -20,7 +20,7 @@ public class DifficultyControlBehaviour : MonoBehaviour {
     {
         Transform infoTrainTrans = GameControlBehaviour.instance.infoTrain.transform;
         GameObject satelite = Instantiate(GameControlBehaviour.instance.satelitePrefab,infoTrainTrans);
-        satelite.transform.localPosition = new Vector3(0f, 0f, -infoTrainTrans.childCount + 1);
+        satelite.transform.localPosition = new Vector3(0f, 0f, -infoTrainTrans.childCount *2);
 
     }
 

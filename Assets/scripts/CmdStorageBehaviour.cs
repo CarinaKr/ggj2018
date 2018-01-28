@@ -2,23 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CmdStorageBehaviour : MonoBehaviour {
+public class CmdStorageBehaviour : MonoBehaviour
+{
 
     public static CmdStorageBehaviour instance;
 
-	private List<CommandObj> commands;
-	public List<CommandObj> Commands {
-		set{commands = value;}
-		get{ return commands;}
-	}
+    private List<CommandObj> commands;
+    public List<CommandObj> Commands
+    {
+        set { commands = value; }
+        get { return commands; }
+    }
 
     void Awake()
     {
-        if(instance==null)
+        if (instance == null)
         {
             instance = this;
         }
-        else if(instance!=this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
@@ -30,17 +32,25 @@ public class CmdStorageBehaviour : MonoBehaviour {
     }
     public void deleteCommand(int index)
     {
+        if (commands[index] == null || index != 0)
+        {
+            Debug.Log("error");
+            return;
+        }
         commands[index].transform.parent.GetComponent<Sattelite>().isUsed = false;
-        Destroy(commands[index].gameObject);
+        GameObject cmdgameObject = commands[index].gameObject;
         commands.RemoveAt(index);
+        Destroy(cmdgameObject);
+
     }
-	public void addCommand(CommandObj com)
+    public void addCommand(CommandObj com)
     {
         commands.Add(com);
     }
 
-	void Start(){
-		commands = new List<CommandObj> ();
-	}
+    void Start()
+    {
+        commands = new List<CommandObj>();
+    }
 
 }

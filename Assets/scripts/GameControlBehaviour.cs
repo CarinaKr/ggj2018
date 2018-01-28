@@ -8,7 +8,8 @@ public class GameControlBehaviour : MonoBehaviour {
 	public static GameControlBehaviour instance;
 
     public Text pointText;
-    public GameObject commandPrefab, commandParent, satelitePrefab;
+    public GameObject commandPrefab, commandParent, satelitePrefab, cmdSpawn;
+    public int maxCommandAmount = 1;
 
     private int _points;
 	public GameObject infoTrain;
@@ -22,7 +23,7 @@ public class GameControlBehaviour : MonoBehaviour {
         { Destroy(gameObject); }
 
         DontDestroyOnLoad(gameObject);
-        StartCoroutine("createCommands",8);
+        StartCoroutine("createCommands",6);
 	}
 
 	//Destory the Tutorial Screen
@@ -55,13 +56,13 @@ public class GameControlBehaviour : MonoBehaviour {
             pointText.text = "Points: " + _points;
         }
     }
-    
+
     public IEnumerator createCommands(int amount)
     {
-        for(int i=0;i<amount;i++)
+        for (int i = 0; i < amount; i++)
         {
-            Instantiate(commandPrefab, commandParent.transform);
             yield return new WaitForSeconds(1);
+            Instantiate(commandPrefab, cmdSpawn.transform.position, cmdSpawn.transform.rotation, commandParent.transform);
         }
     }
 }

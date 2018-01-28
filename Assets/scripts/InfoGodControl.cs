@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfoGodControl : MonoBehaviour {
+public class InfoGodControl : MonoBehaviour
+{
 
-    public static InfoGodControl instance; 
+    public static InfoGodControl instance;
     //public GameObject sattelitePrefab;
-   	//public int satInLevel;
+    //public int satInLevel;
     public GameObject[] ObjInLine;
+    public GameObject cmdSpawn;
 
     //private List<GameObject> sattelites;
     private CmdStorageBehaviour storage;
@@ -18,11 +20,11 @@ public class InfoGodControl : MonoBehaviour {
 
     void Awake()
     {
-        if(instance==null)
+        if (instance == null)
         {
             instance = this;
         }
-        else if(instance!=this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
@@ -30,14 +32,15 @@ public class InfoGodControl : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         storage = GetComponent<CmdStorageBehaviour>();
         //sattelites = new List<GameObject>();
         //createSattelites();
         //StartCoroutine("speedUp");
     }
-	
+
     //public IEnumerator speedUp()
     //{
     //    DOTweenPath path = GetComponent<DOTweenPath>();
@@ -49,25 +52,26 @@ public class InfoGodControl : MonoBehaviour {
     //        yield return new WaitForSeconds(1f);
     //    }
     //}
-	//// Update is called once per frame
-	//void Update () {
-		
-	//}
+    //// Update is called once per frame
+    //void Update () {
 
-//    void createSattelites()
-//    {
-//        for (int i = 0; i < satInLevel; i++)
-//        {
-//            //sattelitePrefab.GetComponent<CommandObj>().index = i;
-//            GameObject sat = Instantiate(sattelitePrefab, transform);
-//            sat.transform.localPosition = new Vector3(0,0, i);
-//            sattelites.Add(sat);
-//        }
-//    }
+    //}
 
-	void SendInfoSequence () {
+    //    void createSattelites()
+    //    {
+    //        for (int i = 0; i < satInLevel; i++)
+    //        {
+    //            //sattelitePrefab.GetComponent<CommandObj>().index = i;
+    //            GameObject sat = Instantiate(sattelitePrefab, transform);
+    //            sat.transform.localPosition = new Vector3(0,0, i);
+    //            sattelites.Add(sat);
+    //        }
+    //    }
 
-	}
+    void SendInfoSequence()
+    {
+
+    }
 
     GameObject ReturnClickedObject(out RaycastHit hit)
     {
@@ -87,7 +91,7 @@ public class InfoGodControl : MonoBehaviour {
         {
             RaycastHit hitInfo;
             target = ReturnClickedObject(out hitInfo);
-            if (target != null && target.transform.tag=="command")
+            if (target != null && target.transform.tag == "command")
             {
                 _isMouseDrag = true;
                 //target.GetComponent<CommandObj>().setInLine(false);
@@ -100,21 +104,21 @@ public class InfoGodControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && target.tag=="command")
+        if (Input.GetMouseButtonUp(0) && target.tag == "command")
         {
             DOTweenPath path = target.GetComponent<DOTweenPath>();
             _isMouseDrag = false;
-            if(droppedInLine())
-            {
+            //if (droppedInLine())
+            //{
                 //target.GetComponent<CommandObj>().setInLine(true);
                 //target.transform.parent = ObjInLine.transform.parent;
-                //target.transform.localPosition = new Vector3(target.transform.localPosition.x, 0.1f, 0.21f);
+                target.transform.position = cmdSpawn.transform.position;
                 path.DORestart(true);
-            }
-            else
-            {
-                target.transform.position = pickupPosition;
-            }
+            //}
+            //else
+            //{
+            //    target.transform.position = pickupPosition;
+            //}
 
             path.DOPlay();
         }
@@ -136,7 +140,7 @@ public class InfoGodControl : MonoBehaviour {
     private bool droppedInLine()
     {
         //Transform inline = ObjInLine.transform;
-        foreach(GameObject objinline in ObjInLine)
+        foreach (GameObject objinline in ObjInLine)
         {
             Transform inline = objinline.transform;
             if (target.transform.position.x > inline.position.x - (inline.lossyScale.x / 2) &&
@@ -147,31 +151,33 @@ public class InfoGodControl : MonoBehaviour {
                 return true;
             }
         }
-        
-         return false; 
+
+        return false;
     }
 
-	void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
-        if(col.transform.tag=="commandInLine")
+        if (col.transform.tag == "commandInLine")
         {
             DifficultyControlBehaviour diffControl = GameControlBehaviour.instance.GetComponent<DifficultyControlBehaviour>();
-            SpawnBehaviour spawnBehaviour = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>();
-            GameObject infoTrain = GameControlBehaviour.instance.infoTrain;
+            //SpawnBehaviour spawnBehaviour = GameControlBehaviour.instance.GetComponent<SpawnBehaviour>();
+            //GameObject infoTrain = GameControlBehaviour.instance.infoTrain;
 
-            Debug.Log("Triggered Reching Base Event");
-            Vector3 parkPos = spawnBehaviour.getPositionInPark();
-            Vector3 outsidePos = spawnBehaviour.getPositionOnFrame();
+            //Debug.Log("Triggered Reching Base Event");
+            //Vector3 parkPos = spawnBehaviour.getPositionInPark();
+            //Vector3 outsidePos = spawnBehaviour.getPositionOnFrame();
 
-            spawnBehaviour.Spawn(outsidePos, parkPos);
+            //spawnBehaviour.Spawn(outsidePos, parkPos);
             diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.01f);
 
-            if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount) {
-                diffControl.addSatelite();
-            } else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
-            {
-                diffControl.destroyLastSatelite();
-            }
+            //if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount)
+            //{
+            //    diffControl.addSatelite();
+            //}
+            //else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
+            //{
+            //    diffControl.destroyLastSatelite();
+            //}
         }
     }
 

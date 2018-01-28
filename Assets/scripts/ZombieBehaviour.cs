@@ -33,30 +33,59 @@ public class ZombieBehaviour : MonoBehaviour {
         {
             case Symbol.MOVEDOWN:
                 //GetComponent<Rigidbody> ().AddForce (Vector3.back * moveForce);
-                transform.Translate(Vector3.back * stepLength);
-                stepsTaken++;
-                health.Move();
+                if (transform.position.y > -constants.PARK_HEIGHT + stepLength)
+                {
+                    transform.Translate(Vector3.back * stepLength);
+                    stepsTaken++;
+                    health.Move();
+                }
+                else
+                {
+                    health.NotMove();
+                }
                 break;
 
             case Symbol.MOVEUP:
                 //GetComponent<Rigidbody> ().AddForce (Vector3.forward * moveForce);
-                transform.Translate(Vector3.forward * stepLength);
-                stepsTaken++;
-                health.Move();
+                if(transform.position.y<constants.PARK_HEIGHT-stepLength)
+                {
+                    transform.Translate(Vector3.forward * stepLength);
+                    stepsTaken++;
+                    health.Move();
+                }
+                else
+                {
+                    health.NotMove();
+                }
                 break;
 
             case Symbol.MOVELEFT:
                 //GetComponent<Rigidbody> ().AddForce (Vector3.left * moveForce);
-                transform.Translate(Vector3.left * stepLength);
-                stepsTaken++;
-                health.Move();
+                if(transform.position.x>-constants.PARK_WIDTH+stepLength)
+                {
+                    transform.Translate(Vector3.left * stepLength);
+                    stepsTaken++;
+                    health.Move();
+                }
+                else
+                {
+                    health.NotMove();
+                }
                 break;
+
 
             case Symbol.MOVERIGHT:
                 //GetComponent<Rigidbody> ().AddForce (Vector3.right * moveForce);
-                transform.Translate(Vector3.right * stepLength);
-                stepsTaken++;
-                health.Move();
+                if(transform.position.x<constants.PARK_WIDTH-stepLength)
+                {
+                    transform.Translate(Vector3.right * stepLength);
+                    stepsTaken++;
+                    health.Move();
+                }
+                else
+                {
+                    health.NotMove();
+                }
                 break;
             case Symbol.CROSS:
                 health.NotMove();
@@ -72,6 +101,14 @@ public class ZombieBehaviour : MonoBehaviour {
             {
                 goalReached();
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.transform.tag=="zombie")
+        {
+            health.NotMove();
         }
     }
 

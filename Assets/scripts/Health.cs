@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class Health : MonoBehaviour {
 	public int healthChangeOnCollision = -1;
     public int healthChangeOnNotMove = -1;
     public int healthCangeOnMove = 1;
+    public Slider healthSlider;
 
     private int maxHealth;
 
@@ -27,7 +29,20 @@ public class Health : MonoBehaviour {
         { health += change; }
         else if(change<0 && health>0)
         { health += change; }
+        healthSlider.value = (health / maxHealth);
+
+        if(health<=0)
+        {
+            deactivateZombie();
+        }
 	}
+
+    public void deactivateZombie()
+    {
+        Debug.Log("Zombie deactivated");
+        //Destroy(gameObject);
+        GetComponent<ZombieBehaviour>().enabled = false;
+    }
 
     public void NotMove()
     {
