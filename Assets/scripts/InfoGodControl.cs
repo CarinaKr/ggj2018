@@ -170,7 +170,7 @@ public class InfoGodControl : MonoBehaviour
             diffControl.cycleCount++;
 
             spawnBehaviour.Spawn(outsidePos, parkPos);
-            diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.01f);
+            diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.03f);
 
             if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount)
             {

@@ -42,6 +42,7 @@ public class Health : MonoBehaviour {
     public void deactivateZombie()
     {
         Debug.Log("Zombie deactivated");
+        Debug.Log(gameObject);
         //Destroy(gameObject);
         ZombieBehaviour zombieBehaviour = GetComponent<ZombieBehaviour>();
         zombieBehaviour.transmitter.GetComponent<Renderer>().material.color = Color.gray;
