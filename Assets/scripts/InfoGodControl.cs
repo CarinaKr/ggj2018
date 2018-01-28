@@ -136,17 +136,21 @@ public class InfoGodControl : MonoBehaviour
 
             diffControl.cycleCount++;
 
-            spawnBehaviour.Spawn(outsidePos, parkPos);
-            diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.03f);
+            if (diffControl.cycleCount % diffControl.cyclesForChange == 0)
+            {
+                spawnBehaviour.Spawn(outsidePos, parkPos);
+                diffControl.changeSpeedBy(GetComponent<DOTweenPath>(), 0.03f);
+                if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount)
+                {
+                    diffControl.addSatelite();
+                }
+                else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
+                {
+                    diffControl.destroyLastSatelite();
+                }
+            }
 
-            if (spawnBehaviour.zombiesInAction > infoTrain.transform.childCount)
-            {
-                diffControl.addSatelite();
-            }
-            else if (spawnBehaviour.zombiesInAction < infoTrain.transform.childCount)
-            {
-                diffControl.destroyLastSatelite();
-            }
+           
         }
     }
 

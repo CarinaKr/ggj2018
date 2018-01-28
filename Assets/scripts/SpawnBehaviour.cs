@@ -51,7 +51,7 @@ public class SpawnBehaviour : MonoBehaviour {
 
             ZombieBehaviour zombieBehaviour = zombieObj.GetComponent<ZombieBehaviour>();
             zombieBehaviour.goalPOI = (POI)Random.Range(0, 3);
-            zombieBehaviour.transmitter = this.gameObject;
+            zombieBehaviour.transmitter = transmitterObj;
 
             Color color = new Color(Random.value, Random.value, Random.value, Random.value);
             zombieObj.GetComponent<ZombieBehaviour>().goalPOI = (POI)Random.Range(0, 3);

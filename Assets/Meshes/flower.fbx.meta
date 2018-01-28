@@ -1,28 +1,64 @@
 fileFormatVersion: 2
-guid: 5a073eaa8ca1b634da509d28a1aff447
-timeCreated: 1517142400
+guid: da342d4bf3b11234bb1d4e13282eb941
+timeCreated: 1517144376
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: case_mat
-    2100002: display_mat
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: case_mat
-    second: {fileID: 2100000, guid: f2a3d733c6d8d104298bb85f1abc81cb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: display_mat
-    second: {fileID: 2100000, guid: 35bd3e98a1edad94587cd3acb19aa85a, type: 2}
+    100000: Circle
+    100002: Circle.001
+    100004: Circle.002
+    100006: Circle.003
+    100008: Circle.004
+    100010: Circle.005
+    100012: Circle.006
+    100014: Circle.007
+    100016: Circle.008
+    100018: //RootNode
+    100020: Icosphere
+    400000: Circle
+    400002: Circle.001
+    400004: Circle.002
+    400006: Circle.003
+    400008: Circle.004
+    400010: Circle.005
+    400012: Circle.006
+    400014: Circle.007
+    400016: Circle.008
+    400018: //RootNode
+    400020: Icosphere
+    2100000: No Name
+    2300000: Circle
+    2300002: Circle.001
+    2300004: Circle.002
+    2300006: Circle.003
+    2300008: Circle.004
+    2300010: Circle.005
+    2300012: Circle.006
+    2300014: Circle.007
+    2300016: Circle.008
+    2300018: Icosphere
+    3300000: Circle
+    3300002: Circle.001
+    3300004: Circle.002
+    3300006: Circle.003
+    3300008: Circle.004
+    3300010: Circle.005
+    3300012: Circle.006
+    3300014: Circle.007
+    3300016: Circle.008
+    3300018: Icosphere
+    4300000: Circle.008
+    4300002: Circle.007
+    4300004: Circle.006
+    4300006: Circle.005
+    4300008: Circle.004
+    4300010: Circle.003
+    4300012: Circle.002
+    4300014: Icosphere
+    4300016: Circle
+    4300018: Circle.001
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -52,7 +88,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 200
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

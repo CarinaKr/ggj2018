@@ -1,28 +1,39 @@
 fileFormatVersion: 2
-guid: 5a073eaa8ca1b634da509d28a1aff447
-timeCreated: 1517142400
+guid: 586c0fc9f38b564479a76c88b04d4627
+timeCreated: 1517144646
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: case_mat
-    2100002: display_mat
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube
+    100000: pCylinder1
+    100002: pCylinder2
+    100004: pPlane1
+    100006: //RootNode
+    100008: transform6
+    100010: transform7
+    400000: pCylinder1
+    400002: pCylinder2
+    400004: pPlane1
+    400006: //RootNode
+    400008: transform6
+    400010: transform7
+    2100000: lambert1
+    2100002: shild
+    2300000: pCylinder2
+    3300000: pCylinder2
+    4300000: pCylinder2
+    9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: case_mat
-    second: {fileID: 2100000, guid: f2a3d733c6d8d104298bb85f1abc81cb, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: c98f6537dd2f9f244a94ba45d617dd16, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: display_mat
-    second: {fileID: 2100000, guid: 35bd3e98a1edad94587cd3acb19aa85a, type: 2}
+      name: shild
+    second: {fileID: 2100000, guid: beaccf94a5ffb1548a81cabad7f1ac1d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -52,7 +63,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 200
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -96,7 +107,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
