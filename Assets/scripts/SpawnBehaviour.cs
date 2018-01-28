@@ -9,6 +9,7 @@ public class SpawnBehaviour : MonoBehaviour {
 	public GameObject zombiePrefab;
     public Rect spawnZone;
 
+    public int zombiesOnStart;
     public float heightOffset;
 	public int maxNumberOfTransmitters;
 	public int zombiesInAction = 0;
@@ -19,8 +20,13 @@ public class SpawnBehaviour : MonoBehaviour {
 	public void Start(){
         zombiesInAction = GameObject.FindGameObjectsWithTag("transmitter").Length; ;
         spawnZone = new Rect(0,0, constants.PARK_WIDTH,constants.PARK_HEIGHT);
-
-	}
+        while (zombiesOnStart > 0)
+        {
+            GameControlBehaviour.instance.GetComponent<DifficultyControlBehaviour>().addSatelite();
+            Spawn(getPositionOnFrame(), getPositionInPark());
+            zombiesOnStart -= 1;
+        }
+    }
 
 	public void Spawn(Vector3 transmitterSpawnPos, Vector3 zombieSpawnPos){
 		if (zombiesInAction < maxNumberOfTransmitters) {
@@ -144,7 +150,7 @@ public class SpawnBehaviour : MonoBehaviour {
 
         foreach (Vector3 position in positions)
         {
-            if ((positionToCheck - position).magnitude < 2)
+            if ((positionToCheck - position).magnitude < 3)
             {
                 isPositionFree = false;
             }
