@@ -8,7 +8,7 @@ public enum POI
     ICE,
     FOUNTAIN
 }
-
+[RequireComponent(typeof(AudioSource))]
 public class ZombieBehaviour : MonoBehaviour {
     
     public float stepLength = 5f;
@@ -17,22 +17,27 @@ public class ZombieBehaviour : MonoBehaviour {
     public Health health;
     public GameObject transmitter;
     public float step = 2f; //0.01f
+    public AudioClip[] clips;
 
     private int optimalStepCount=1;
     private int stepsTaken;
     private Animator animator;
     private Rigidbody rb;
+    private AudioSource audioPlayer;
     
     private bool isInCoroutine;
     private Vector3 goal;
     
     void Start()
     {
+        audioPlayer = GetComponent<AudioSource>();
         health = GetComponent<Health>();
         animator = GetComponentInChildren<Animator>();
         //animator.StartPlayback();
         rb = GetComponent<Rigidbody>();
         goal = transform.position;
+        audioPlayer.clip = clips[5];
+        audioPlayer.Play();
     }
 
     public void Move(Symbol symbol)
@@ -129,6 +134,8 @@ public class ZombieBehaviour : MonoBehaviour {
         }
         else
         {
+            audioPlayer.clip = clips[1];
+            audioPlayer.Play();
             animator.SetBool("move", false);
         }
     }
@@ -146,6 +153,8 @@ public class ZombieBehaviour : MonoBehaviour {
             yield return new WaitForSeconds(0.01f);
         }
         animator.SetBool("move", false);
+        audioPlayer.clip = clips[2];
+        audioPlayer.Play();
         isInCoroutine = false;
     }
     
@@ -166,12 +175,16 @@ public class ZombieBehaviour : MonoBehaviour {
         if(other.transform.tag=="zombie")
         {
             health.NotMove();
+            audioPlayer.clip = clips[0];
+            audioPlayer.Play();
             animator.SetTrigger("hit_out");
         }
     }
 
     private void goalReached()
     {
+        audioPlayer.clip = clips[3];
+        audioPlayer.Play();
         float points = health.health * healthFactor - (stepsTaken) * stepCountFactor;
         GameControlBehaviour.instance.points = (int)points;
         StartCoroutine("deleteZombie");
@@ -180,6 +193,8 @@ public class ZombieBehaviour : MonoBehaviour {
     private void hitObstacle()
     {
         health.NotMove();
+        audioPlayer.clip = clips[1];
+        audioPlayer.Play();
         animator.SetTrigger("hit_in");
     }
 
