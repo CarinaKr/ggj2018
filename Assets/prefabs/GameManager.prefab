@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cycleCount: 0
+  cyclesForChange: 4
 --- !u!114 &114907512969087028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,12 +77,12 @@ MonoBehaviour:
     width: 0
     height: 0
   pointsOfInterestImage:
-  - {fileID: 21300000, guid: 6f295a5401e4e4c43ac78acbfcf8ce48, type: 3}
-  - {fileID: 21300000, guid: 1e76b6ae5cfbaeb4cb60eb4b9672f1e6, type: 3}
-  - {fileID: 21300000, guid: caefb843c3d9c1d4f88653ae4b857804, type: 3}
-  zombiesOnStart: 4
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  zombiesOnStart: 1
   heightOffset: 0
-  maxNumberOfTransmitters: 8
+  maxNumberOfTransmitters: 4
   zombiesInAction: 0
   spawnOnFrameOffsetX: 7
   spawnOnFrameOffsetY: 3

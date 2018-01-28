@@ -21,15 +21,15 @@ public class CommandObj : MonoBehaviour
     {
         rb = transform.GetComponent<Rigidbody>();
         move = new Vector3(5, 0, 0);
-        if(UnityEngine.Random.Range(0,4)==0)
-        {
-            symbol = Symbol.CROSS;
-        }
-        else
-        {
+        //if(UnityEngine.Random.Range(0,4)==0)
+        //{
+        //    symbol = Symbol.CROSS;
+        //}
+        //else
+        //{
             int randomNum = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Symbol)).Length);
             symbol = (Symbol)randomNum;
-        }
+        //}
         if (symbol == Symbol.CROSS)
         {
             GameObject child = Instantiate(cross, transform);

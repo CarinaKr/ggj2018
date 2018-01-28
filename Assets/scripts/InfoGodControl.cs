@@ -77,17 +77,19 @@ public class InfoGodControl : MonoBehaviour
             _isMouseDrag = false;
             //if (droppedInLine())
             //{
-                //target.GetComponent<CommandObj>().setInLine(true);
-                //target.transform.parent = ObjInLine.transform.parent;
-                target.transform.position = cmdSpawn.transform.position;
-                path.DORestart(true);
+            //target.GetComponent<CommandObj>().setInLine(true);
+            //target.transform.parent = ObjInLine.transform.parent;
+            //target.transform.position = cmdSpawn.transform.position;
+            //path.DORestart(true);
+            Destroy(target.gameObject);
+            GameControlBehaviour.instance.StartCoroutine("createCommands", 1);
             //}
             //else
             //{
             //    target.transform.position = pickupPosition;
             //}
 
-            path.DOPlay();
+            //path.DOPlay();
         }
 
         if (_isMouseDrag)
